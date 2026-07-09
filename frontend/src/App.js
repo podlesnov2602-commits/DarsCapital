@@ -32,6 +32,7 @@ function App() {
             <Route path="contact" element={<ContactPage />} />
             <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="property/:id" element={<PropertyDetail />} />
+            <Route path="object/:id" element={<PropertyDetail />} />
           </Route>
         </Routes>
       </BrowserRouter>

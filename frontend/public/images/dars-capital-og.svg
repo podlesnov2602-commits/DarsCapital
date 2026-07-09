@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#07172f"/><stop offset="1" stop-color="#175cd3"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect x="70" y="70" width="1060" height="490" fill="none" stroke="#d9b46f" stroke-width="4"/>
+  <text x="600" y="275" text-anchor="middle" font-family="Georgia, serif" font-size="88" fill="#ffffff" letter-spacing="8">DARS CAPITAL</text>
+  <text x="600" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#e7eefc">Бутик-агентство недвижимости в Алматы</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#d9b46f">Продажа • Аренда • Инвестиции</text>
+</svg>
