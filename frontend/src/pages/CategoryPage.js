@@ -31,7 +31,8 @@ const CategoryPage = ({ category }) => {
     minPrice: '',
     maxPrice: '',
     minArea: '',
-    district: 'all'
+    district: 'all',
+    sortOrder: ['villa', 'apartment'].includes(category) ? 'priceDesc' : 'default'
   });
 
   const [showFilters, setShowFilters] = useState(false);
@@ -40,14 +41,7 @@ const CategoryPage = ({ category }) => {
   const filteredProperties = useMemo(() => {
     const categoryProperties = propertiesData.filter(property => property.type === category);
 
-    const orderedCategoryProperties = ['villa', 'apartment'].includes(category)
-      ? [
-          ...categoryProperties.slice(0, 3),
-          ...categoryProperties.slice(3).sort((a, b) => b.price - a.price),
-        ]
-      : categoryProperties;
-
-    return orderedCategoryProperties.filter(property => {
+    const filteredCategoryProperties = categoryProperties.filter(property => {
       // Filter by Price
       if (filters.minPrice && property.price < parseInt(filters.minPrice, 10)) return false;
       if (filters.maxPrice && property.price > parseInt(filters.maxPrice, 10)) return false;
@@ -62,6 +56,16 @@ const CategoryPage = ({ category }) => {
 
       return true;
     });
+
+    if (filters.sortOrder === 'priceDesc') {
+      return [...filteredCategoryProperties].sort((a, b) => b.price - a.price);
+    }
+
+    if (filters.sortOrder === 'priceAsc') {
+      return [...filteredCategoryProperties].sort((a, b) => a.price - b.price);
+    }
+
+    return filteredCategoryProperties;
   }, [category, filters]);
 
   const handleFilterChange = (e) => {
@@ -79,6 +83,16 @@ const CategoryPage = ({ category }) => {
   };
 
   const districts = ['Бостандыкский', 'Медеуский', 'Ауэзовский', 'Алмалинский'];
+
+  const resetFilters = () => {
+    setFilters({
+      minPrice: '',
+      maxPrice: '',
+      minArea: '',
+      district: 'all',
+      sortOrder: ['villa', 'apartment'].includes(category) ? 'priceDesc' : 'default',
+    });
+  };
 
   return (
     <div className="w-full pt-24 md:pt-28 pb-14 md:pb-20 bg-muted min-h-screen">
@@ -104,7 +118,7 @@ const CategoryPage = ({ category }) => {
 
         {/* Filters Panel */}
         <div className={`bg-white p-6 md:p-8 shadow-[0_12px_34px_rgba(15,31,58,0.08)] mb-12 transition-all duration-300 ${showFilters ? 'block' : 'hidden md:block'}`}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
             <div>
               <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Район</label>
               <select
@@ -117,6 +131,20 @@ const CategoryPage = ({ category }) => {
                 {districts.map(d => (
                   <option key={d} value={d}>{d} район</option>
                 ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Сортировка</label>
+              <select
+                name="sortOrder"
+                value={filters.sortOrder}
+                onChange={handleFilterChange}
+                className="w-full border-b-2 border-border py-2 bg-transparent focus:outline-none focus:border-accentblue transition-colors text-primary"
+              >
+                <option value="default">По умолчанию</option>
+                <option value="priceDesc">Цена по убыванию</option>
+                <option value="priceAsc">Цена по возрастанию</option>
               </select>
             </div>
 
@@ -159,7 +187,7 @@ const CategoryPage = ({ category }) => {
 
           <div className="mt-8 flex justify-end">
             <Button
-              onClick={() => setFilters({minPrice: '', maxPrice: '', minArea: '', district: 'all'})}
+              onClick={resetFilters}
               variant="ghost"
               className="text-muted-foreground hover:text-primary uppercase text-xs tracking-widest"
             >
