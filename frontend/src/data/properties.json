@@ -1276,7 +1276,23 @@
       "Тёплый пол на обоих этажах"
     ],
     "images": [
-      "/images/kurganskaya-5-house.svg"
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595291/1_sqcufv.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595401/2_gvclda.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595410/3_e9czqm.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595291/4_bbi54r.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595497/5_htjpi5.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595493/6_sux57h.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595527/7_nmlj7t.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595372/8_xzzlad.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595388/9_hkyasm.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595530/10_gurdxn.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595286/11_niy8xi.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595375/12_m8e9ex.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595243/13_dacbib.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595395/14_unnbmt.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595606/15_b7yagp.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595290/16_j0grgl.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1783595290/17_pgtlxp.png"
     ],
     "featured": false,
     "status": "available"
