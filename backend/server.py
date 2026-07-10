@@ -22,13 +22,13 @@ PROPERTIES_PATH = FRONTEND_DIR / "src" / "data" / "properties.json"
 SITE_URL = "https://dars-capital.kz"
 SITE_NAME = "DARS CAPITAL"
 LOCALE = "ru_RU"
-DEFAULT_IMAGE = f"{SITE_URL}/images/dars-capital-og.svg"
-DEFAULT_TITLE = "DARS CAPITAL | Недвижимость в Алматы"
+DEFAULT_IMAGE = "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1777115922/10_p5mtoq.png"
+DEFAULT_TITLE = "DarsCapital | Недвижимость в Алматы"
 DEFAULT_DESCRIPTION = (
-    "DARS CAPITAL — бутик-агентство недвижимости в Алматы. Продажа и аренда квартир, домов, "
+    "DarsCapital — бутик-агентство недвижимости в Алматы. Продажа и аренда квартир, домов, "
     "вилл, участков и коммерческой недвижимости с профессиональным сопровождением."
 )
-DEFAULT_KEYWORDS = "DARS CAPITAL, недвижимость Алматы, купить квартиру Алматы, виллы Алматы, участки Алматы"
+DEFAULT_KEYWORDS = "DarsCapital, недвижимость Алматы, купить квартиру Алматы, виллы Алматы, участки Алматы"
 IMAGE_WIDTH = "1200"
 IMAGE_HEIGHT = "630"
 
@@ -112,9 +112,18 @@ def property_description(property_data: dict[str, Any]) -> str:
     return " • ".join(items)
 
 
+def absolute_image_url(image: str) -> str:
+    if not image:
+        return DEFAULT_IMAGE
+    if image.startswith(("http://", "https://")):
+        return image
+    clean_image = image if image.startswith("/") else f"/{image}"
+    return f"{SITE_URL}{clean_image}"
+
+
 def property_image(property_data: dict[str, Any]) -> str:
     images = property_data.get("images") or []
-    return images[0] if images else DEFAULT_IMAGE
+    return absolute_image_url(images[0]) if images else DEFAULT_IMAGE
 
 
 def organization_schema() -> dict[str, Any]:
@@ -222,6 +231,8 @@ def meta_tags(
     <meta property="og:title" content="{esc(title)}" />
     <meta property="og:description" content="{esc(description)}" />
     <meta property="og:image" content="{esc(image)}" />
+    <meta property="og:image:secure_url" content="{esc(image)}" />
+    <meta property="og:image:alt" content="{esc(title)}" />
     <meta property="og:image:width" content="{IMAGE_WIDTH}" />
     <meta property="og:image:height" content="{IMAGE_HEIGHT}" />
     <meta property="og:image:type" content="{image_mime_type(image)}" />
@@ -230,6 +241,7 @@ def meta_tags(
     <meta name="twitter:title" content="{esc(title)}" />
     <meta name="twitter:description" content="{esc(description)}" />
     <meta name="twitter:image" content="{esc(image)}" />
+    <meta name="twitter:image:alt" content="{esc(title)}" />
     <meta name="twitter:site" content="@darscapital" />
     {schema_tags}
     """
