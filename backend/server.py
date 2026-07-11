@@ -249,11 +249,20 @@ def meta_tags(
 
 def render_index(meta_html: str) -> str:
     index = INDEX_PATH.read_text(encoding="utf-8")
-    # CRA minifies index.html in production, so replace the whole static SEO block
-    # from the first <title> up to the font preconnect section in both public and build HTML.
+    # Inject page-specific SEO before fonts so messengers see it immediately.
+    # Also remove the static homepage Open Graph/Twitter block from public/index.html;
+    # duplicate og:image/description tags can make WhatsApp/Telegram pick the generic
+    # homepage preview instead of the first property photo and characteristics.
     index = re.sub(
         r"<title>.*?(?=<link\s+rel=[\"']preconnect[\"'])",
         meta_html,
+        index,
+        count=1,
+        flags=re.DOTALL,
+    )
+    index = re.sub(
+        r"\n\s*<!-- Open Graph.*?<!-- Yandex Maps",
+        "\n    <!-- Yandex Maps",
         index,
         count=1,
         flags=re.DOTALL,
