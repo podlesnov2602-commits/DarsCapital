@@ -41,8 +41,22 @@ const absoluteImageUrl = (image) => {
   return `${SITE_URL}${image.startsWith('/') ? image : `/${image}`}`;
 };
 
+const optimizedShareImageUrl = (image) => {
+  const absoluteUrl = absoluteImageUrl(image);
+
+  // Messengers fetch Open Graph images server-side and are stricter than browsers:
+  // oversized PNGs, transparent images, or non-standard aspect ratios can be ignored.
+  // Cloudinary can serve every listing photo as a normalized 1200x630 JPEG preview,
+  // which matches the dimensions declared below in the OG tags.
+  return absoluteUrl.replace(
+    /(https:\/\/res\.cloudinary\.com\/[^/]+\/image\/upload\/)(?!c_fill,w_1200,h_630,g_auto,f_jpg,q_auto\/)/i,
+    '$1c_fill,w_1200,h_630,g_auto,f_jpg,q_auto/'
+  );
+};
+
 const imageMimeType = (image) => {
   const clean = image.toLowerCase().split('?')[0];
+  if (clean.includes('/f_jpg,') || clean.includes(',f_jpg,') || clean.includes(',f_jpg/')) return 'image/jpeg';
   if (clean.endsWith('.png')) return 'image/png';
   if (clean.endsWith('.webp')) return 'image/webp';
   if (clean.endsWith('.svg')) return 'image/svg+xml';
@@ -92,7 +106,7 @@ const injectMeta = (meta) => template
   .replace(/\n\s*<!-- Open Graph[\s\S]*?<!-- Yandex Maps/, '\n    <!-- Yandex Maps');
 
 for (const property of properties) {
-  const image = absoluteImageUrl(property.images && property.images[0]);
+  const image = optimizedShareImageUrl(property.images && property.images[0]);
   for (const prefix of ['property', 'object']) {
     const url = `${SITE_URL}/${prefix}/${property.id}`;
     const html = injectMeta(renderMeta({
