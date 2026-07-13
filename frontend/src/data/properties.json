@@ -1321,6 +1321,7 @@
       "/images/dars-capital-og.svg"
     ],
     "featured": false,
-    "status": "available"
+    "status": "available",
+    "map_url": "https://yandex.ru/map-widget/v1/?um=constructor%3Aafd1c31cd183e84c05c0e03e7c28202fc2a0ac392807431e1bc03772e0223595&source=constructor"
   }
 ]
