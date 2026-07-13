@@ -56,9 +56,8 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "prebuild": "node scripts/generate-property-meta.js"
+    "build": "craco build && node scripts/generate-property-meta.js",
+    "test": "craco test"
   },
   "browserslist": {
     "production": [

@@ -1,0 +1,13 @@
+# DarsCapital SPA fallback for Apache hosting (PS.KZ).
+# Serve real files/directories first, including generated /property/:id/index.html
+# pages with Open Graph meta tags. Everything else falls back to React.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^ index.html [L]
+</IfModule>

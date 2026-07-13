@@ -3,13 +3,19 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const publicDir = path.join(root, 'public');
-const templatePath = path.join(publicDir, 'index.html');
+const buildDir = path.join(root, 'build');
+const buildIndexPath = path.join(buildDir, 'index.html');
+const publicIndexPath = path.join(publicDir, 'index.html');
 const propertiesPath = path.join(root, 'src', 'data', 'properties.json');
 
 const SITE_URL = 'https://dars-capital.kz';
 const SITE_NAME = 'DarsCapital';
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/ddr5ek7jn/image/upload/v1777115922/10_p5mtoq.png';
 const DEFAULT_DESCRIPTION = 'DarsCapital — бутик-агентство недвижимости в Алматы. Продажа и аренда квартир, домов, вилл, участков и коммерческой недвижимости.';
+
+const hasBuild = fs.existsSync(buildIndexPath);
+const templatePath = hasBuild ? buildIndexPath : publicIndexPath;
+const outputDir = hasBuild ? buildDir : publicDir;
 
 const template = fs.readFileSync(templatePath, 'utf8');
 const properties = JSON.parse(fs.readFileSync(propertiesPath, 'utf8'));
@@ -82,7 +88,7 @@ const renderMeta = ({ title, description, url, image }) => `
     <meta name="description" content="${escapeHtml(description)}" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="${escapeHtml(url)}" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" />
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="${SITE_NAME}" />
@@ -102,8 +108,19 @@ const renderMeta = ({ title, description, url, image }) => `
     <meta name="twitter:image:alt" content="${escapeHtml(title)}" />`;
 
 const injectMeta = (meta) => template
-  .replace(/\s*<title>[\s\S]*?<\/title>[\s\S]*?<!-- Fonts -->/, `\n${meta}\n\n    <!-- Fonts -->`)
-  .replace(/\n\s*<!-- Open Graph[\s\S]*?<!-- Yandex Maps/, '\n    <!-- Yandex Maps');
+  .replace(
+    /\s*<title>[\s\S]*?<\/title>[\s\S]*?(?=(?:\s*<!-- Fonts -->|<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com"))/,
+    `\n${meta}\n\n    `
+  )
+  .replace(/\n\s*<!-- Open Graph[\s\S]*?<!-- Yandex Maps/, '\n    <!-- Yandex Maps')
+  .replace(
+    /(<link href="https:\/\/fonts\.googleapis\.com\/css2\?[^"]+" rel="stylesheet"\/?>)<meta property="og:locale"[\s\S]*?(?=<script src="https:\/\/api-maps\.yandex\.ru)/,
+    '$1'
+  );
+
+for (const prefix of ['property', 'object']) {
+  fs.rmSync(path.join(outputDir, prefix), { recursive: true, force: true });
+}
 
 for (const property of properties) {
   const image = optimizedShareImageUrl(property.images && property.images[0]);
@@ -115,10 +132,10 @@ for (const property of properties) {
       url,
       image,
     }));
-    const targetDir = path.join(publicDir, prefix, String(property.id));
+    const targetDir = path.join(outputDir, prefix, String(property.id));
     fs.mkdirSync(targetDir, { recursive: true });
     fs.writeFileSync(path.join(targetDir, 'index.html'), html);
   }
 }
 
-console.log(`Generated static Open Graph pages for ${properties.length} properties.`);
+console.log(`Generated static Open Graph pages for ${properties.length} properties in ${path.relative(root, outputDir)}.`);
