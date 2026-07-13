@@ -13,7 +13,7 @@ const PropertyDetail = () => {
   const [touchStartX, setTouchStartX] = useState(null);
 
   useEffect(() => {
-    const foundProperty = propertiesData.find(p => p.id === id);
+    const foundProperty = propertiesData.find(p => String(p.id) === String(id));
     if (foundProperty) {
       setProperty(foundProperty);
       setActiveImage(0);
@@ -73,7 +73,7 @@ const PropertyDetail = () => {
   const formatArea = (item) => `${item.area} ${item.area_unit || 'м²'}`;
 
   const similarProperties = propertiesData
-    .filter(p => p.type === property.type && p.id !== property.id)
+    .filter(p => p.type === property.type && String(p.id) !== String(property.id))
     .slice(0, 3);
 
   const goToPreviousImage = () => {
