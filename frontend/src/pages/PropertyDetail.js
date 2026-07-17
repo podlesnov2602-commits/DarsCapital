@@ -207,7 +207,7 @@ const PropertyDetail = () => {
                 <span>{currentPropertyType.label}</span>
               </div>
 
-              <h1 className="text-3xl md:text-5xl font-serif text-primary mb-6 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-serif text-primary mb-6 leading-tight lining-nums">
                 {property.title}
               </h1>
 
