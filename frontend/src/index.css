@@ -44,6 +44,11 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .lining-nums {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum" 1;
+  }
   .luxury-gradient {
     background: linear-gradient(135deg, #0F2A44 0%, #173B61 100%);
   }
