@@ -1439,6 +1439,7 @@
       "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1784295835/%D0%90%D1%80%D1%85%D0%B0%D1%82_2_wbd7jb.png"
     ],
     "featured": false,
-    "status": "available"
+    "status": "available",
+    "map_url": "https://yandex.ru/map-widget/v1/?um=constructor%3Aafd1c31cd183e84c05c0e03e7c28202fc2a0ac392807431e1bc03772e0223595&source=constructor"
   }
 ]
