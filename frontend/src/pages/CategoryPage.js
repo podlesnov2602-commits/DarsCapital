@@ -218,7 +218,7 @@ const CategoryPage = ({ category }) => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 text-xs font-semibold tracking-wider uppercase">
-                    {property.status === 'available' ? 'В продаже' : 'Продано'}
+                    {property.status_label || (property.status === 'available' ? 'В продаже' : 'Продано')}
                   </div>
                 </div>
 

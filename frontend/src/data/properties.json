@@ -1402,7 +1402,8 @@
       "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1784273674/you1_rqmbsu.jpg"
     ],
     "featured": false,
-    "status": "available"
+    "status": "available",
+    "status_label": "Аренда"
   },
   {
     "id": "64",

@@ -125,7 +125,7 @@ const PropertyDetail = () => {
                 className="w-full h-full object-cover transition-transform duration-700"
               />
               <div className="absolute top-4 left-4 bg-white/90 px-4 py-1 text-xs uppercase tracking-wider font-semibold">
-                {property.status === 'available' ? 'В продаже' : 'Продано'}
+                {property.status_label || (property.status === 'available' ? 'В продаже' : 'Продано')}
               </div>
             </div>
 
