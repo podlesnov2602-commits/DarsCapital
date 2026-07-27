@@ -39,7 +39,9 @@ const CategoryPage = ({ category }) => {
 
   // Filter Properties
   const filteredProperties = useMemo(() => {
-    const categoryProperties = propertiesData.filter(property => property.type === category);
+    const categoryProperties = propertiesData.filter(
+      property => property.type === category && property.hiddenFromCatalog !== true
+    );
 
     const filteredCategoryProperties = categoryProperties.filter(property => {
       // Filter by Price

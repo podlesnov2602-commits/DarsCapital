@@ -1154,7 +1154,8 @@
       "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1778483965/92cf990c-242b-4124-8f1c-4a7bb0a00ba4_hry6b6.jpg"
     ],
     "featured": false,
-    "status": "available"
+    "status": "available",
+    "hiddenFromCatalog": true
   },
   {
     "id": "36",
