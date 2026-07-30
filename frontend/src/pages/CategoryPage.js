@@ -78,6 +78,8 @@ const CategoryPage = ({ category }) => {
   const formatArea = (property) => `${property.area} ${property.area_unit || 'м²'}`;
 
   const formatPrice = (price) => {
+    if (price === null || price === undefined) return 'Цена по запросу';
+
     return new Intl.NumberFormat('kk-KZ', {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,

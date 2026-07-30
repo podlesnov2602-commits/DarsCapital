@@ -57,6 +57,8 @@ const PropertyDetail = () => {
   }
 
   const formatPrice = (price) => {
+    if (price === null || price === undefined) return 'Цена по запросу';
+
     return new Intl.NumberFormat('kk-KZ', {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
