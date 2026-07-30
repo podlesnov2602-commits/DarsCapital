@@ -28,6 +28,8 @@ const escapeHtml = (value = '') => String(value)
   .replace(/'/g, '&#39;');
 
 const formatPrice = (price) => {
+  if (price === null || price === undefined) return 'Цена по запросу';
+
   const number = Number(price);
   return Number.isFinite(number) ? `${new Intl.NumberFormat('ru-RU').format(number)} ₸` : 'Цена по запросу';
 };
