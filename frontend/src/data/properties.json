@@ -84,6 +84,7 @@
       "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1779798975/08may_12_lr8qdv.png"
     ],
     "featured": false,
+    "hiddenFromCatalog": true,
     "status": "available",
     "map_url": "https://yandex.ru/map-widget/v1/?um=constructor%3Afa12f984a1702e38cdf45c6d2660b818883031978091f49cdfedbba9bd20c724&source=constructor"
   },
