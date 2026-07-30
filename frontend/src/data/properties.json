@@ -1498,7 +1498,7 @@
     "type": "commerce",
     "location": "Алматы, Бостандыкский район, возле ресторана NAVAT",
     "map_url": "https://yandex.ru/map-widget/v1/?um=constructor%3A7595b85af103d53597740f732a32398509a970b5f47669b5e3d089de55cea365&source=constructor",
-    "price": null,
+    "price": 850000000,
     "area": 604,
     "area_unit": "м²",
     "plot_size": null,
