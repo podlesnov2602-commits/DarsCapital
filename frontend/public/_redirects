@@ -1,3 +1,9 @@
+/apartments   /apartments/index.html  200!
+/apartments/  /apartments/index.html  200!
+/villas       /villas/index.html  200!
+/villas/      /villas/index.html  200!
+/commerce     /commerce/index.html  200!
+/commerce/    /commerce/index.html  200!
 /property/*  /index.html  200!
 /object/*    /index.html  200!
 /*          /index.html  200
