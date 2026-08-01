@@ -32,6 +32,24 @@ DEFAULT_KEYWORDS = "DarsCapital, недвижимость Алматы, купи
 IMAGE_WIDTH = "1200"
 IMAGE_HEIGHT = "630"
 
+CATEGORY_META = {
+    "apartments": {
+        "title": "Апартаменты в Алматы | DARS CAPITAL",
+        "description": "Эксклюзивные квартиры и апартаменты в лучших жилых комплексах Алматы.",
+        "keywords": "апартаменты Алматы, купить квартиру Алматы, DARS CAPITAL",
+    },
+    "villas": {
+        "title": "Виллы в Алматы | DARS CAPITAL",
+        "description": "Роскошные загородные резиденции, виллы и дома премиум-класса в Алматы.",
+        "keywords": "виллы Алматы, купить дом Алматы, DARS CAPITAL",
+    },
+    "commerce": {
+        "title": "Коммерческая недвижимость в Алматы | DARS CAPITAL",
+        "description": "Премиальные коммерческие помещения в Алматы для бизнеса и инвестиций.",
+        "keywords": "коммерческая недвижимость Алматы, помещения для бизнеса, DARS CAPITAL",
+    },
+}
+
 app = FastAPI()
 
 if (BUILD_DIR / "static").exists():
@@ -278,6 +296,29 @@ def home_meta(path: str = "/") -> str:
         canonical_url(path),
         DEFAULT_IMAGE,
         [organization_schema()],
+    )
+
+
+@app.get("/apartments", response_class=HTMLResponse)
+@app.get("/villas", response_class=HTMLResponse)
+@app.get("/commerce", response_class=HTMLResponse)
+def category_page(request: Request):
+    """Serve the SPA shell for catalog URLs opened without client-side navigation."""
+    category = request.url.path.strip("/")
+    category_meta = CATEGORY_META.get(category)
+
+    url = canonical_url(request.url.path)
+    return HTMLResponse(
+        render_index(
+            meta_tags(
+                category_meta["title"],
+                category_meta["description"],
+                category_meta["keywords"],
+                url,
+                DEFAULT_IMAGE,
+                [organization_schema()],
+            )
+        )
     )
 
 

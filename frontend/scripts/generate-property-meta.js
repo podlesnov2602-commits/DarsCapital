@@ -12,6 +12,20 @@ const SITE_URL = 'https://dars-capital.kz';
 const SITE_NAME = 'DarsCapital';
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/ddr5ek7jn/image/upload/v1777115922/10_p5mtoq.png';
 const DEFAULT_DESCRIPTION = 'DarsCapital — бутик-агентство недвижимости в Алматы. Продажа и аренда квартир, домов, вилл, участков и коммерческой недвижимости.';
+const categories = {
+  apartments: {
+    title: 'Апартаменты в Алматы | DARS CAPITAL',
+    description: 'Эксклюзивные квартиры и апартаменты в лучших жилых комплексах Алматы.',
+  },
+  villas: {
+    title: 'Виллы в Алматы | DARS CAPITAL',
+    description: 'Роскошные загородные резиденции, виллы и дома премиум-класса в Алматы.',
+  },
+  commerce: {
+    title: 'Коммерческая недвижимость в Алматы | DARS CAPITAL',
+    description: 'Премиальные коммерческие помещения в Алматы для бизнеса и инвестиций.',
+  },
+};
 
 const hasBuild = fs.existsSync(buildIndexPath);
 const templatePath = hasBuild ? buildIndexPath : publicIndexPath;
@@ -122,6 +136,21 @@ const injectMeta = (meta) => template
 
 for (const prefix of ['property', 'object']) {
   fs.rmSync(path.join(outputDir, prefix), { recursive: true, force: true });
+}
+
+// Physical index files keep catalog URLs working on static hosts even when a
+// platform-level SPA rewrite is unavailable or bypassed during a page refresh.
+for (const [slug, category] of Object.entries(categories)) {
+  const url = `${SITE_URL}/${slug}`;
+  const html = injectMeta(renderMeta({
+    title: category.title,
+    description: category.description,
+    url,
+    image: DEFAULT_IMAGE,
+  }));
+  const targetDir = path.join(outputDir, slug);
+  fs.mkdirSync(targetDir, { recursive: true });
+  fs.writeFileSync(path.join(targetDir, 'index.html'), html);
 }
 
 for (const property of properties) {
