@@ -206,7 +206,7 @@ const PropertyDetail = () => {
             {/* Left Column - Details */}
             <div className="lg:col-span-2">
               <div className="mb-6 flex items-center gap-2 text-accentblue text-sm uppercase tracking-widest font-semibold">
-                <span>{currentPropertyType.label}</span>
+                <span>{property.type_label || currentPropertyType.label}</span>
               </div>
 
               <h1 className="text-3xl md:text-5xl font-serif text-primary mb-6 leading-tight lining-nums">

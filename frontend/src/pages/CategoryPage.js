@@ -229,7 +229,7 @@ const CategoryPage = ({ category }) => {
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="text-accentblue text-xs uppercase tracking-widest mb-3">
-                    {categoryConfig[property.type]?.label || 'Объект'}
+                    {property.type_label || categoryConfig[property.type]?.label || 'Объект'}
                   </div>
                   <h3 className="text-xl font-serif text-primary mb-3 line-clamp-2">
                     {property.title}
