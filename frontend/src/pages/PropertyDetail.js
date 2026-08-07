@@ -235,7 +235,9 @@ const PropertyDetail = () => {
                 {property.plot_size && (
                   <div>
                     <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Участок</div>
-                    <div className="text-2xl font-medium text-primary">{property.plot_size} сот.</div>
+                    <div className="text-2xl font-medium text-primary">
+                      {property.plot_label || `${property.plot_size} сот.`}
+                    </div>
                   </div>
                 )}
               </div>
