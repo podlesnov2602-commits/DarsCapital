@@ -3,7 +3,9 @@
     "id": "68",
     "title": "Esentai Heights — участок для частной резиденции",
     "type": "commerce",
+    "type_label": "Участок ИЖС",
     "location": "Алматы, Медеуский р-н, ул. Машхура Жусупа",
+    "map_url": "https://yandex.ru/map-widget/v1/?um=constructor%3A1108c8a95d3fa30f760eaa57672d3b62bdb80a0d3752b7e67e97dbf828bf8d7e&source=constructor",
     "price": 330000000,
     "area": 23,
     "area_unit": "сот.",
@@ -23,7 +25,16 @@
       "Панорамные виды на город и горы"
     ],
     "images": [
-      "/images/esentai-heights-land.svg"
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1786107482/zeml_4_af90jz.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1786107509/zeml9_3_mfespu.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1786107479/zeml9_4_vr7bge.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1786107469/zeml9_6_bzeeki.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1786107432/zeml9_1_whizyq.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1786107445/zeml9_5_lsno6n.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1786107447/zeml_2_snfmni.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1786107448/zeml_3_maxrci.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1786107472/zeml_1_kazilb.png",
+      "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1786107448/zeml9_iig6dt.png"
     ],
     "featured": true,
     "status": "available"
