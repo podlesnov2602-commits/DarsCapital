@@ -6,7 +6,7 @@
     "type_label": "Коммерческое здание",
     "location": "Алматы, проспект Рыскулова, 103/18б",
     "map_url": "https://yandex.ru/map-widget/v1/?um=constructor%3A28b773dc2b00130433dbd8f7aa37c41a4b11ede8acfce92c87a0c73362468b01&source=constructor",
-    "price": null,
+    "price": 950000000,
     "area": 2678.2,
     "area_unit": "м²",
     "plot_size": null,
