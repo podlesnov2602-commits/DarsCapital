@@ -1065,7 +1065,8 @@
     ],
     "featured": false,
     "status": "available",
-    "map_url": "https://yandex.ru/map-widget/v1/?um=constructor%3A80daeaead97e711f69344b1556c7dfc099d4d155226b3d9b55c6f68ff6034d3a&source=constructor"
+    "map_url": "https://yandex.ru/map-widget/v1/?um=constructor%3A80daeaead97e711f69344b1556c7dfc099d4d155226b3d9b55c6f68ff6034d3a&source=constructor",
+    "hiddenFromCatalog": true
   },
   {
     "id": "52",
