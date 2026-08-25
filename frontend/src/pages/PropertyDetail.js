@@ -281,7 +281,7 @@ const PropertyDetail = () => {
             <div className="lg:col-span-1">
               <div className="sticky top-24 md:top-28 bg-white border border-border p-5 sm:p-8 shadow-[0_18px_36px_rgba(15,31,58,0.12)]">
                 <div className="text-sm text-muted-foreground uppercase tracking-wider mb-2">Стоимость</div>
-                <div className="text-3xl sm:text-4xl font-serif text-primary mb-8">
+                <div className="text-3xl sm:text-4xl font-serif lining-nums text-primary mb-8">
                   {formatPrice(property.price)}
                 </div>
 
