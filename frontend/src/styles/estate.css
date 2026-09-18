@@ -112,5 +112,24 @@
 @media(max-width:640px){.estate-card-body{padding:22px}.estate-card h3{font-size:24px;min-height:0}.estate-card-price{font-size:25px}.estate-location{min-height:0}.estate-filters{padding:14px}.estate-filter-fields{grid-template-columns:1fr;gap:16px}.estate-filter-fields label{font-size:12px}.estate-filter-fields input,.estate-filter-fields select,.estate-search input{font-size:16px}.estate-search{flex-wrap:wrap;gap:8px}.estate-search input{width:calc(100% - 32px)}.estate-filter-toggle{justify-content:center;width:100%;border-top:1px solid var(--estate-line);padding:14px 0 0;font-size:12px}.estate-catalog .estate-section{padding-top:36px}.estate-main-photo{height:auto;aspect-ratio:4/3}.estate-gallery-grid{gap:10px}.estate-thumbnails{gap:8px}.estate-thumbnails>div{width:90px;height:68px}.estate-gallery-caption{bottom:14px;left:14px;font-size:11px;padding:9px 12px}.estate-property-heading{margin:22px 0}.estate-property-heading h1{font-size:31px}.estate-gallery-section{padding-top:20px;padding-bottom:12px}.estate-viewing-card{padding:24px}.estate-viewing-card>div:nth-child(2){font-size:30px}.estate-specifications{padding:22px 20px;margin-bottom:36px}.estate-specifications dl{column-gap:18px}.estate-description h2,.estate-specifications h2{font-size:28px}.estate-description p{font-size:15px}.estate-features-panel{padding:24px 20px}.estate-site-header nav a{font-size:13px}}
 
 /* Property prices and restored team section. */
-.estate-card-price,.estate-detail-price,.estate-price{font-family:Georgia,'Times New Roman',serif!important;font-weight:400!important;font-variant-numeric:lining-nums proportional-nums;letter-spacing:-.025em}.estate-card-price{font-size:28px}.estate-viewing-card .estate-detail-price{font-size:clamp(30px,2.8vw,42px)}.estate-about{display:grid;grid-template-columns:1.1fr 1fr;gap:54px;align-items:center}.estate-about>img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center top}.estate-about>div>p:not(.estate-eyebrow){font-size:15px;line-height:1.9;color:#667085;margin:24px 0}.estate-description p{overflow-wrap:anywhere}@media(max-width:760px){.estate-about{grid-template-columns:1fr;gap:28px}.estate-about h2{font-size:30px}.estate-viewing-card .estate-detail-price{font-size:34px}}
+.estate-card-price,.estate-detail-price,.estate-price{font-family:Georgia,'Times New Roman',serif!important;font-weight:400!important;font-variant-numeric:lining-nums proportional-nums;letter-spacing:-.025em}.estate-card-price{font-size:28px}.estate-viewing-card .estate-detail-price{font-size:clamp(30px,2.8vw,42px)}.estate-description p{overflow-wrap:anywhere}@media(max-width:760px){.estate-viewing-card .estate-detail-price{font-size:34px}}
 .estate-description ul{list-style:disc;padding-left:22px;margin:12px 0 24px;color:#475467;font-size:15px;line-height:1.9}.estate-description li+li{margin-top:6px}.estate-description .estate-description-label{margin-bottom:8px;color:var(--estate-ink);font-size:15px}
+
+/* Full team portrait with a balanced editorial panel. */
+.estate-about-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:white;border:1px solid var(--estate-line);box-shadow:0 16px 44px #0F2A4407}
+.estate-about-photo{margin:0;align-self:center;background:var(--estate-paper)}
+.estate-about-photo img{display:block;width:100%;height:auto;max-width:100%}
+.estate-about-photo figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:20px 24px;background:var(--estate-ink);color:white;font-size:10px;letter-spacing:.08em}.estate-about-photo figcaption span:first-child{font-weight:600;letter-spacing:.16em}
+.estate-about-copy{padding:clamp(28px,3.5vw,54px);display:flex;flex-direction:column;justify-content:center;min-width:0}
+.estate-about-copy h2{font-size:clamp(30px,3vw,42px);line-height:1.2;margin:16px 0 22px;letter-spacing:-.035em}
+.estate-about-intro{font-size:15px;line-height:1.85;color:#667085}
+.estate-about-values{margin:28px 0}
+.estate-about-value{display:flex;gap:16px;padding:19px 0;border-top:1px solid var(--estate-line)}
+.estate-about-value:last-child{border-bottom:1px solid var(--estate-line)}
+.estate-about-value>svg{flex-shrink:0;color:#6FA8FF;margin-top:3px}
+.estate-about-value h3{font-size:21px;line-height:1.35;margin-bottom:7px}
+.estate-about-value p{font-size:13px;line-height:1.8;color:#667085}
+.estate-about-footer>p{font-size:12px;line-height:1.8;color:#667085;margin-bottom:22px}
+.estate-about-footer .estate-button{gap:18px;font-size:11px;max-width:100%}
+@media(max-width:900px){.estate-about-panel{grid-template-columns:1fr}.estate-about-photo{width:100%;max-width:560px;justify-self:center}.estate-about-copy{padding:32px}.estate-about-copy h2{font-size:36px}}
+@media(max-width:480px){.estate-about-copy{padding:26px 22px}.estate-about-copy h2{font-size:31px}.estate-about-photo figcaption{padding:16px 20px;font-size:9px}.estate-about-intro{font-size:14px}.estate-about-value h3{font-size:20px}.estate-about-footer .estate-button{width:100%;padding:17px 12px}}
