@@ -4,6 +4,8 @@ import { MapPin, ArrowRight, Check, ChevronLeft, ChevronRight, X } from 'lucide-
 import GoogleMapEmbed from '../components/GoogleMapEmbed';
 import { Button } from '../components/ui/button';
 import propertiesData from '../data/properties.json';
+import PropertyCard from '../components/PropertyCard';
+import { formatPrice, isRental, specifications, statusLabel, isLand, inCategory } from '../lib/property';
 
 const PropertyDetail = () => {
   const { id } = useParams();
@@ -14,6 +16,7 @@ const PropertyDetail = () => {
 
   useEffect(() => {
     const foundProperty = propertiesData.find(p => String(p.id) === String(id));
+    setProperty(foundProperty || null);
     if (foundProperty) {
       setProperty(foundProperty);
       setActiveImage(0);
@@ -56,14 +59,6 @@ const PropertyDetail = () => {
     );
   }
 
-  const formatPrice = (price) => {
-    if (price === null || price === undefined) return 'Цена по запросу';
-
-    return new Intl.NumberFormat('kk-KZ', {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(price) + ' ₸';
-  };
 
   const propertyTypeConfig = {
     apartment: { label: 'Апартаменты', path: '/apartments' },
@@ -71,11 +66,10 @@ const PropertyDetail = () => {
     commerce: { label: 'Коммерция', path: '/commerce' },
   };
 
-  const currentPropertyType = propertyTypeConfig[property.type] || { label: 'Объект', path: '/apartments' };
-  const formatArea = (item) => `${item.area} ${item.area_unit || 'м²'}`;
+  const currentPropertyType = propertyTypeConfig[isLand(property) ? 'villa' : property.type] || { label: 'Объект', path: '/apartments' };
 
   const similarProperties = propertiesData
-    .filter(p => p.type === property.type && String(p.id) !== String(property.id))
+    .filter(p => inCategory(p, isLand(property) ? 'villa' : property.type) && !p.hiddenFromCatalog && p.status === 'available' && String(p.id) !== String(property.id))
     .slice(0, 3);
 
   const goToPreviousImage = () => {
@@ -111,14 +105,17 @@ const PropertyDetail = () => {
   };
 
   return (
-    <div className="w-full pt-20 bg-white">
+    <div className="estate-detail w-full pt-20 bg-white">
       {/* Gallery Section */}
       <section className="bg-muted pb-12 pt-8">
         <div className="container mx-auto px-4 md:px-8">
+          <nav className="estate-breadcrumb" aria-label="Навигация"><Link to="/">Главная</Link><span>/</span><Link to={currentPropertyType.path}>{currentPropertyType.label}</Link><span>/ № {property.id}</span></nav>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
             {/* Main Image */}
             <div
               className="lg:col-span-9 h-[400px] md:h-[600px] relative overflow-hidden group cursor-pointer"
+              role="button" tabIndex={0} aria-label="Открыть фотогалерею"
+              onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setIsFullscreenGalleryOpen(true); } }}
               onClick={() => setIsFullscreenGalleryOpen(true)}
             >
               <img
@@ -127,7 +124,7 @@ const PropertyDetail = () => {
                 className="w-full h-full object-cover transition-transform duration-700"
               />
               <div className="absolute top-4 left-4 bg-white/90 px-4 py-1 text-xs uppercase tracking-wider font-semibold">
-                {property.status_label || (property.status === 'available' ? 'В продаже' : 'Продано')}
+                {statusLabel(property)}
               </div>
             </div>
 
@@ -139,9 +136,11 @@ const PropertyDetail = () => {
                   className={`flex-shrink-0 w-32 lg:w-full h-24 lg:h-[140px] cursor-pointer border-2 transition-all ${
                     activeImage === index ? 'border-accentblue opacity-100' : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
+                  role="button" tabIndex={0} aria-label={`Фото ${index + 1}`} aria-pressed={activeImage === index}
+                  onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActiveImage(index); } }}
                   onClick={() => setActiveImage(index)}
                 >
-                  <img src={img} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
+                  <img src={img} alt={`Фото объекта ${index + 1}`} loading="lazy" className="w-full h-full object-cover" />
                 </div>
               ))}
             </div>
@@ -218,42 +217,13 @@ const PropertyDetail = () => {
                 {property.location}
               </div>
 
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-border mb-12">
-                <div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Площадь</div>
-                  <div className="text-2xl font-medium text-primary">
-                    {formatArea(property)}
-                  </div>
-                </div>
-                {property.type !== 'commerce' && (
-                  <div>
-                    <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Комнаты</div>
-                    <div className="text-2xl font-medium text-primary">{property.rooms}</div>
-                  </div>
-                )}
-                {property.plot_size && (
-                  <div>
-                    <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Участок</div>
-                    <div className="text-2xl font-medium text-primary">
-                      {property.plot_label || `${property.plot_size} сот.`}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Description */}
-              <div className="mb-12">
-                <h3 className="text-2xl font-serif text-primary mb-6">Описание</h3>
-                <p className="text-muted-foreground leading-relaxed text-lg whitespace-pre-line">
-                  {property.description}
-                </p>
-              </div>
+              <section className="estate-specifications"><p className="estate-eyebrow">ПАСПОРТ ОБЪЕКТА / № {property.id}</p><h2>Характеристики</h2><dl>{specifications(property).map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></section>
+              <section className="estate-description"><h2>Описание</h2>{property.description_sections?.map(section=><div key={section.title}><h3>{section.title}</h3>{section.paragraphs.length ? section.paragraphs.map((text,index)=><p key={index}>{text}</p>) : <p className="estate-missing">Подробности уточняются у консультанта.</p>}</div>)}</section>
 
               {/* Features */}
               {property.features && property.features.length > 0 && (
                 <div className="mb-12 bg-muted p-8">
-                  <h3 className="text-2xl font-serif text-primary mb-6">Характеристики</h3>
+                  <h3 className="text-2xl font-serif text-primary mb-6">Детали и особенности</h3>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {property.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
@@ -266,7 +236,7 @@ const PropertyDetail = () => {
               )}
 
               <div className="mb-12">
-                <h3 className="text-2xl font-serif text-primary mb-6">Yandex Maps</h3>
+                <h3 className="text-2xl font-serif text-primary mb-6">Расположение на карте</h3>
                 <GoogleMapEmbed
                   title={property.title}
                   location={property.location}
@@ -282,11 +252,11 @@ const PropertyDetail = () => {
               <div className="sticky top-24 md:top-28 bg-white border border-border p-5 sm:p-8 shadow-[0_18px_36px_rgba(15,31,58,0.12)]">
                 <div className="text-sm text-muted-foreground uppercase tracking-wider mb-2">Стоимость</div>
                 <div className="text-3xl sm:text-4xl font-serif lining-nums text-primary mb-8">
-                  {formatPrice(property.price)}
+                  {formatPrice(property.price, isRental(property))}
                 </div>
 
                 <div className="space-y-4 mb-8">
-                  <a href={`https://wa.me/77077157249?text=Здравствуйте! Интересует объект "${property.title}" `} target="_blank" rel="noopener noreferrer" className="block w-full">
+                  <a href={`https://wa.me/77077157249?text=${encodeURIComponent(`Здравствуйте! Хочу узнать подробнее об объекте № ${property.id}: ${property.title}`)}`} target="_blank" rel="noopener noreferrer" className="block w-full">
                     <Button className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white rounded-none py-6 uppercase tracking-widest text-sm transition-all duration-300 shadow-[0_10px_24px_rgba(37,211,102,0.35)]">
                       Написать в WhatsApp
                     </Button>
@@ -323,33 +293,7 @@ const PropertyDetail = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {similarProperties.map(simProp => (
-                <Link
-                  key={simProp.id}
-                  to={`/property/${simProp.id}`}
-                  className="group bg-white flex flex-col h-full shadow-[0_8px_24px_rgba(15,31,58,0.07)] hover:shadow-[0_18px_36px_rgba(15,31,58,0.14)] transition-shadow duration-500 overflow-hidden"
-                >
-                  <div className="relative h-56 sm:h-64 overflow-hidden">
-                    <img
-                      src={simProp.images[0]}
-                      alt={simProp.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-lg font-serif text-primary mb-2 line-clamp-1">{simProp.title}</h3>
-                    <div className="text-sm text-muted-foreground mb-4">{simProp.location}</div>
-                    <div className="mt-auto pt-4 border-t border-border flex justify-between items-center">
-                      <div className="text-lg font-medium text-primary">{formatPrice(simProp.price)}</div>
-                      <div className="text-xs text-muted-foreground">
-                        {simProp.type === 'commerce'
-                          ? formatArea(simProp)
-                          : `${formatArea(simProp)}${simProp.plot_size ? ` • участок ${simProp.plot_size} сот.` : ''}`}
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+              {similarProperties.map(simProp => <PropertyCard key={simProp.id} property={simProp}/>)}
             </div>
 
             <div className="mt-8 text-center md:hidden">

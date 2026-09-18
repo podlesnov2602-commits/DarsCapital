@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Phone, Mail } from 'lucide-react';
-import { Button } from './ui/button';
 
 const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,6 +16,7 @@ const Layout = () => {
     { title: 'Виллы', path: '/villas' },
     { title: 'Коммерция', path: '/commerce' },
     { title: 'О нас', path: '/about' },
+    { title: 'Контакты', path: '/contact' },
   ];
 
   return (
@@ -38,7 +38,7 @@ const Layout = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -56,7 +56,7 @@ const Layout = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2.5 shrink-0 rounded-md border border-white/40 text-white hover:bg-accentblue/20 transition-colors"
+            className="lg:hidden p-2.5 shrink-0 rounded-md border border-white/40 text-white hover:bg-accentblue/20 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
             aria-expanded={isMenuOpen}
@@ -71,7 +71,7 @@ const Layout = () => {
 
         {/* Mobile Navigation Dropdown */}
         <div
-          className={`absolute top-full left-0 right-0 bg-primary shadow-lg transition-all duration-300 overflow-hidden md:hidden ${
+          className={`absolute top-full left-0 right-0 bg-primary shadow-lg transition-all duration-300 overflow-hidden lg:hidden ${
             isMenuOpen ? 'max-h-[calc(100vh-72px)] border-t border-white/10 overflow-y-auto' : 'max-h-0'
           }`}
         >
