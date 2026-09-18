@@ -7,7 +7,7 @@ import { inCategory } from '../lib/property';
 const collections=[['Виллы и резиденции','Пространство для вашей жизни','villa','/villas'],['Апартаменты','Город в вашем ритме','apartment','/apartments'],['Коммерческая недвижимость','Адрес для вашего бизнеса','commerce','/commerce']];
 export default function HomePage(){
  const available=properties.filter(p=>!p.hiddenFromCatalog && p.status==='available');
- const featured=['31','79','78'].map(id=>available.find(p=>p.id===id)).filter(Boolean);
+ const featured=['31','53','1'].map(id=>available.find(p=>p.id===id)).filter(Boolean);
  return <div className="estate-home">
   <section className="estate-hero">
    <img src={available.find(p=>p.id==='31')?.images[0]} alt="Резиденция в предгорьях Алматы из коллекции DARS CAPITAL" fetchPriority="high"/>
