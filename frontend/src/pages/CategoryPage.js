@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SlidersHorizontal, Search } from 'lucide-react';
+import { SlidersHorizontal, Search, X } from 'lucide-react';
 import PropertyCard from '../components/PropertyCard';
 import properties from '../data/properties.json';
 import { isLand, knownNumber, inCategory } from '../lib/property';
@@ -9,6 +9,8 @@ const initial={query:'',district:'',minPrice:'',maxPrice:'',minArea:'',kind:'',s
 export default function CategoryPage({category}){
  const [filters,setFilters]=useState(initial);const [open,setOpen]=useState(false);
  const [title,subtitle]=config[category];
+ const filterLabels={query:'Поиск',district:'Район',minPrice:'Цена от',maxPrice:'Цена до',minArea:'Площадь от',kind:'Тип'};
+ const activeFilters=Object.entries(filters).filter(([key,value])=>key!=='sort'&&value!=='');
  const update=e=>setFilters({...filters,[e.target.name]:e.target.value});
  const results=useMemo(()=>{
   const found=properties.filter(p=>inCategory(p,category)&&!p.hiddenFromCatalog).filter(p=>{
@@ -35,7 +37,7 @@ export default function CategoryPage({category}){
  {category==='villa'&&<label>Тип объекта<select name="kind" value={filters.kind} onChange={update}><option value="">Дома и участки</option><option value="house">Дома</option><option value="land">Земельные участки</option></select></label>}
  <label>Цена от, ₸<input type="number" min="0" name="minPrice" value={filters.minPrice} onChange={update} placeholder="Без ограничений"/></label><label>Цена до, ₸<input type="number" min="0" name="maxPrice" value={filters.maxPrice} onChange={update} placeholder="Без ограничений"/></label><label>Площадь от, м²<input type="number" min="0" step="any" name="minArea" value={filters.minArea} onChange={update} placeholder="Любая площадь"/></label>
  </div>{filters.minPrice!==''&&filters.maxPrice!==''&&Number(filters.minPrice)>Number(filters.maxPrice)&&<p role="status" className="estate-filter-note">Цена «от» не должна превышать цену «до».</p>}{category==='villa'&&<p className="estate-filter-note">Площадь участков при поиске пересчитывается в м²: 1 сотка = 100 м².</p>}</form>
- <div className="estate-results-bar"><p aria-live="polite">Найдено: {results.length}</p><button onClick={()=>setFilters(initial)} type="button">Сбросить фильтры</button><label><span className="sr-only">Сортировка</span><select name="sort" value={filters.sort} onChange={update}><option value="default">Порядок коллекции</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select></label></div>
+ <div className="estate-filter-chips">{activeFilters.map(([key,value])=><button type="button" key={key} onClick={()=>setFilters({...filters,[key]:''})} aria-label={`Убрать фильтр: ${filterLabels[key]}`}><span>{filterLabels[key]}: {key==='kind'?(value==='land'?'Участки':'Дома'):value}{key.includes('Price')?' ₸':key==='minArea'?' м²':''}</span><X size={14}/></button>)}</div><div className="estate-results-bar"><p aria-live="polite">Найдено: {results.length}</p>{activeFilters.length>0&&<button onClick={()=>setFilters(initial)} type="button">Сбросить фильтры</button>}<label><span className="sr-only">Сортировка</span><select name="sort" value={filters.sort} onChange={update}><option value="default">Порядок коллекции</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select></label></div>
  {results.length?<div className="estate-grid">{results.map(p=><PropertyCard key={p.id} property={p}/>)}</div>:<div className="estate-empty"><h2>Подходящих объектов пока нет</h2><p>Измените параметры или поручите подбор нашему консультанту.</p><Link to="/contact" className="estate-button">Помочь с подбором</Link></div>}
  </section></div>;
 }

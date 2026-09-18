@@ -23,7 +23,7 @@ const Layout = () => {
     <div className="flex flex-col min-h-screen">
       {/* Sticky Header */}
       <header
-        className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md shadow-[0_8px_30px_rgba(15,31,58,0.28)] py-3 md:py-4 text-white transition-all duration-300"
+        className="estate-site-header fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md shadow-[0_8px_30px_rgba(15,31,58,0.28)] py-3 md:py-4 text-white transition-all duration-300"
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center gap-3 min-h-14 md:min-h-0">
           {/* Logo */}
@@ -43,6 +43,7 @@ const Layout = () => {
               <Link
                 key={link.path}
                 to={link.path}
+                aria-current={location.pathname === link.path ? 'page' : undefined}
                 className={`text-sm uppercase tracking-wider font-medium hover:text-accentblue transition-colors ${
                   location.pathname === link.path
                     ? 'text-accentblue'
@@ -71,6 +72,7 @@ const Layout = () => {
 
         {/* Mobile Navigation Dropdown */}
         <div
+          hidden={!isMenuOpen}
           className={`absolute top-full left-0 right-0 bg-primary shadow-lg transition-all duration-300 overflow-hidden lg:hidden ${
             isMenuOpen ? 'max-h-[calc(100vh-72px)] border-t border-white/10 overflow-y-auto' : 'max-h-0'
           }`}
@@ -80,6 +82,7 @@ const Layout = () => {
               <Link
                 key={link.path}
                 to={link.path}
+                aria-current={location.pathname === link.path ? 'page' : undefined}
                 className={`py-4 text-center text-sm uppercase tracking-wider border-b border-white/10 ${
                   location.pathname === link.path ? 'text-accentblue font-bold' : 'text-white'
                 }`}

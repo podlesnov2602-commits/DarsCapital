@@ -107,13 +107,26 @@ const PropertyDetail = () => {
   return (
     <div className="estate-detail w-full pt-20 bg-white">
       {/* Gallery Section */}
-      <section className="bg-muted pb-12 pt-8">
+      <section className="estate-gallery-section bg-muted pb-12 pt-8">
         <div className="container mx-auto px-4 md:px-8">
           <nav className="estate-breadcrumb" aria-label="Навигация"><Link to="/">Главная</Link><span>/</span><Link to={currentPropertyType.path}>{currentPropertyType.label}</Link></nav>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <header className="estate-property-heading">              <div className="mb-6 flex items-center gap-2 text-accentblue text-sm uppercase tracking-widest font-semibold">
+                <span>{property.type_label || currentPropertyType.label}</span>
+              </div>
+
+              <h1 className="text-3xl md:text-5xl font-serif text-primary mb-6 leading-tight lining-nums">
+                {property.title}
+              </h1>
+
+              <div className="flex items-center text-muted-foreground mb-10 text-lg">
+                <MapPin size={20} className="text-accentblue mr-2" />
+                {property.location}
+              </div>
+
+</header><div className="estate-gallery-grid grid grid-cols-1 lg:grid-cols-12 gap-4">
             {/* Main Image */}
             <div
-              className="lg:col-span-9 h-[400px] md:h-[600px] relative overflow-hidden group cursor-pointer"
+              className="estate-main-photo lg:col-span-9 h-[400px] md:h-[600px] relative overflow-hidden group cursor-pointer"
               role="button" tabIndex={0} aria-label="Открыть фотогалерею"
               onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setIsFullscreenGalleryOpen(true); } }}
               onClick={() => setIsFullscreenGalleryOpen(true)}
@@ -125,11 +138,11 @@ const PropertyDetail = () => {
               />
               <div className="absolute top-4 left-4 bg-white/90 px-4 py-1 text-xs uppercase tracking-wider font-semibold">
                 {statusLabel(property)}
-              </div>
+              </div><span className="estate-gallery-caption">Открыть галерею · {property.images.length} фото</span>
             </div>
 
             {/* Thumbnails */}
-            <div className="lg:col-span-3 flex lg:flex-col gap-4 overflow-x-auto lg:overflow-y-auto h-auto lg:h-[600px] pb-4 lg:pb-0 scrollbar-hide">
+            <div className="estate-thumbnails lg:col-span-3 flex lg:flex-col gap-4 overflow-x-auto lg:overflow-y-auto h-auto lg:h-[600px] pb-4 lg:pb-0 scrollbar-hide">
               {property.images.map((img, index) => (
                 <div
                   key={index}
@@ -200,29 +213,16 @@ const PropertyDetail = () => {
       {/* Main Content Area */}
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          <div className="estate-detail-grid grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
 
             {/* Left Column - Details */}
-            <div className="lg:col-span-2">
-              <div className="mb-6 flex items-center gap-2 text-accentblue text-sm uppercase tracking-widest font-semibold">
-                <span>{property.type_label || currentPropertyType.label}</span>
-              </div>
-
-              <h1 className="text-3xl md:text-5xl font-serif text-primary mb-6 leading-tight lining-nums">
-                {property.title}
-              </h1>
-
-              <div className="flex items-center text-muted-foreground mb-10 text-lg">
-                <MapPin size={20} className="text-accentblue mr-2" />
-                {property.location}
-              </div>
-
+            <div className="estate-detail-copy lg:col-span-2">
               <section className="estate-specifications"><p className="estate-eyebrow">ПАСПОРТ ОБЪЕКТА</p><h2>Характеристики</h2><dl>{specifications(property).map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></section>
               <section className="estate-description"><h2>Описание</h2>{property.description_sections?.map(section=><div key={section.title}><h3>{section.title}</h3>{section.paragraphs.length ? section.paragraphs.map((text,index)=><p key={index}>{text}</p>) : <p className="estate-missing">Подробности уточняются у консультанта.</p>}</div>)}</section>
 
               {/* Features */}
               {property.features && property.features.length > 0 && (
-                <div className="mb-12 bg-muted p-8">
+                <div className="estate-features-panel mb-12 bg-muted p-8">
                   <h3 className="text-2xl font-serif text-primary mb-6">Детали и особенности</h3>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {property.features.map((feature, idx) => (
@@ -248,17 +248,17 @@ const PropertyDetail = () => {
             </div>
 
             {/* Right Column - Sidebar / Form */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24 md:top-28 bg-white border border-border p-5 sm:p-8 shadow-[0_18px_36px_rgba(15,31,58,0.12)]">
+            <div className="estate-contact-column lg:col-span-1">
+              <div className="estate-viewing-card sticky top-24 md:top-28 bg-white border border-border p-5 sm:p-8 shadow-[0_18px_36px_rgba(15,31,58,0.12)]">
                 <div className="text-sm text-muted-foreground uppercase tracking-wider mb-2">Стоимость</div>
                 <div className="text-3xl sm:text-4xl font-serif lining-nums text-primary mb-8">
                   {formatPrice(property.price, isRental(property))}
                 </div>
 
-                <div className="space-y-4 mb-8">
-                  <a href={`https://wa.me/77077157249?text=${encodeURIComponent(`Здравствуйте! Хочу узнать подробнее об объекте № ${property.id}: ${property.title}`)}`} target="_blank" rel="noopener noreferrer" className="block w-full">
+                <p className="estate-viewing-note">Свяжитесь с консультантом, чтобы уточнить детали и выбрать удобное время просмотра.</p><div className="space-y-4 mb-8">
+                  <a href={`https://wa.me/77077157249?text=${encodeURIComponent(`Здравствуйте! Хочу записаться на просмотр объекта № ${property.id}: ${property.title}`)}`} target="_blank" rel="noopener noreferrer" className="block w-full">
                     <Button className="w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white rounded-none py-6 uppercase tracking-widest text-sm transition-all duration-300 shadow-[0_10px_24px_rgba(37,211,102,0.35)]">
-                      Написать в WhatsApp
+                      Записаться на просмотр
                     </Button>
                   </a>
                 </div>
