@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Phone, Mail } from 'lucide-react';
-import { Button } from './ui/button';
 
 const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,13 +16,14 @@ const Layout = () => {
     { title: 'Виллы', path: '/villas' },
     { title: 'Коммерция', path: '/commerce' },
     { title: 'О нас', path: '/about' },
+    { title: 'Контакты', path: '/contact' },
   ];
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Sticky Header */}
       <header
-        className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md shadow-[0_8px_30px_rgba(15,31,58,0.28)] py-3 md:py-4 text-white transition-all duration-300"
+        className="estate-site-header fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md shadow-[0_8px_30px_rgba(15,31,58,0.28)] py-3 md:py-4 text-white transition-all duration-300"
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center gap-3 min-h-14 md:min-h-0">
           {/* Logo */}
@@ -38,11 +38,12 @@ const Layout = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
+                aria-current={location.pathname === link.path ? 'page' : undefined}
                 className={`text-sm uppercase tracking-wider font-medium hover:text-accentblue transition-colors ${
                   location.pathname === link.path
                     ? 'text-accentblue'
@@ -56,7 +57,7 @@ const Layout = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2.5 shrink-0 rounded-md border border-white/40 text-white hover:bg-accentblue/20 transition-colors"
+            className="lg:hidden p-2.5 shrink-0 rounded-md border border-white/40 text-white hover:bg-accentblue/20 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
             aria-expanded={isMenuOpen}
@@ -71,7 +72,8 @@ const Layout = () => {
 
         {/* Mobile Navigation Dropdown */}
         <div
-          className={`absolute top-full left-0 right-0 bg-primary shadow-lg transition-all duration-300 overflow-hidden md:hidden ${
+          hidden={!isMenuOpen}
+          className={`absolute top-full left-0 right-0 bg-primary shadow-lg transition-all duration-300 overflow-hidden lg:hidden ${
             isMenuOpen ? 'max-h-[calc(100vh-72px)] border-t border-white/10 overflow-y-auto' : 'max-h-0'
           }`}
         >
@@ -80,6 +82,7 @@ const Layout = () => {
               <Link
                 key={link.path}
                 to={link.path}
+                aria-current={location.pathname === link.path ? 'page' : undefined}
                 className={`py-4 text-center text-sm uppercase tracking-wider border-b border-white/10 ${
                   location.pathname === link.path ? 'text-accentblue font-bold' : 'text-white'
                 }`}
