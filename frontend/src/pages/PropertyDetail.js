@@ -109,7 +109,7 @@ const PropertyDetail = () => {
       {/* Gallery Section */}
       <section className="bg-muted pb-12 pt-8">
         <div className="container mx-auto px-4 md:px-8">
-          <nav className="estate-breadcrumb" aria-label="Навигация"><Link to="/">Главная</Link><span>/</span><Link to={currentPropertyType.path}>{currentPropertyType.label}</Link><span>/ № {property.id}</span></nav>
+          <nav className="estate-breadcrumb" aria-label="Навигация"><Link to="/">Главная</Link><span>/</span><Link to={currentPropertyType.path}>{currentPropertyType.label}</Link></nav>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
             {/* Main Image */}
             <div
@@ -217,7 +217,7 @@ const PropertyDetail = () => {
                 {property.location}
               </div>
 
-              <section className="estate-specifications"><p className="estate-eyebrow">ПАСПОРТ ОБЪЕКТА / № {property.id}</p><h2>Характеристики</h2><dl>{specifications(property).map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></section>
+              <section className="estate-specifications"><p className="estate-eyebrow">ПАСПОРТ ОБЪЕКТА</p><h2>Характеристики</h2><dl>{specifications(property).map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></section>
               <section className="estate-description"><h2>Описание</h2>{property.description_sections?.map(section=><div key={section.title}><h3>{section.title}</h3>{section.paragraphs.length ? section.paragraphs.map((text,index)=><p key={index}>{text}</p>) : <p className="estate-missing">Подробности уточняются у консультанта.</p>}</div>)}</section>
 
               {/* Features */}
