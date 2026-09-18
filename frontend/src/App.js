@@ -5,7 +5,6 @@ import { Toaster } from 'sonner';
 // Global Styles
 import '@/App.css';
 import './index.css';
-import './styles/estate.css';
 
 // Components
 import Layout from './components/Layout';
@@ -26,9 +25,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-            <Route path="apartments" element={<CategoryPage key="apartment" category="apartment" />} />
-            <Route path="villas" element={<CategoryPage key="villa" category="villa" />} />
-            <Route path="commerce" element={<CategoryPage key="commerce" category="commerce" />} />
+            <Route path="apartments" element={<CategoryPage category="apartment" />} />
+            <Route path="villas" element={<CategoryPage category="villa" />} />
+            <Route path="commerce" element={<CategoryPage category="commerce" />} />
             <Route path="about" element={<AboutPage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
