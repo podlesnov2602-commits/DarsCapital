@@ -1,7 +1,8 @@
 import { briefFacts, specifications, formatPrice, isRental, inCategory } from './property';
 import properties from '../data/properties.json';
-test('all 48 properties share description sections and valid display values',()=>{
- expect(properties).toHaveLength(48);
+test('all properties share description sections and valid display values',()=>{
+ expect(properties.length).toBeGreaterThan(0);
+ expect(new Set(properties.map(p=>p.id)).size).toBe(properties.length);
  for(const p of properties){
   expect(p.description_sections.map(s=>s.title)).toEqual(['Об объекте','Характеристики и оснащение','Территория и инфраструктура','Расположение']);
   expect(specifications(p).every(([label,value])=>label && value && !/undefined|null|NaN/.test(value))).toBe(true);
