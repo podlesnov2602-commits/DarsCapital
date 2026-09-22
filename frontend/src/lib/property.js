@@ -12,7 +12,8 @@ export function specifications(p) {
  if (!isLand(p) && (p.type === 'villa' || p.plot_size)) rows.push(['Площадь участка',p.plot_label || (knownNumber(p.plot_size) ? `${number(p.plot_size)} сот.` : 'Уточняется')]);
  if (p.type === 'apartment' || p.floor) rows.push(['Этаж',p.floor ? String(p.floor).replace('/', ' из ') : 'Уточняется']);
  if (p.ceiling_height) rows.push(['Высота потолков',`${number(p.ceiling_height)} м`]);
- rows.push(['Адрес',p.location || 'Уточняется'],['Статус',statusLabel(p)]);
+ if (p.location) rows.push(['Адрес',p.location]);
+ rows.push(['Статус',statusLabel(p)]);
  return rows;
 }
 export function briefFacts(p) {
