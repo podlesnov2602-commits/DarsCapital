@@ -119,10 +119,10 @@ const PropertyDetail = () => {
                 {property.title}
               </h1>
 
-              <div className="flex items-center text-muted-foreground mb-10 text-lg">
+              {property.location && <div className="flex items-center text-muted-foreground mb-10 text-lg">
                 <MapPin size={20} className="text-accentblue mr-2" />
                 {property.location}
-              </div>
+              </div>}
 
 </header><div className="estate-gallery-grid grid grid-cols-1 lg:grid-cols-12 gap-4">
             {/* Main Image */}
@@ -236,7 +236,7 @@ const PropertyDetail = () => {
                 </div>
               )}
 
-              <div className="mb-12">
+              {(property.location || property.map_url) && <div className="mb-12">
                 <h3 className="text-2xl font-serif text-primary mb-6">Расположение на карте</h3>
                 <GoogleMapEmbed
                   title={property.title}
@@ -244,7 +244,7 @@ const PropertyDetail = () => {
                   mapUrl={property.map_url}
                   heightClassName="h-80"
                 />
-              </div>
+              </div>}
 
             </div>
 
