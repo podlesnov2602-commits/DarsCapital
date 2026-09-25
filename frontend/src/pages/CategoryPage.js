@@ -5,7 +5,7 @@ import PropertyCard from '../components/PropertyCard';
 import properties from '../data/properties.json';
 import { isLand, knownNumber, inCategory } from '../lib/property';
 const config={apartment:['Апартаменты','Квартиры и пентхаусы для жизни в ритме города'],villa:['Виллы и резиденции','Дома и резиденции в Алматы и предгорьях'],commerce:['Коммерческая недвижимость','Помещения, здания и земельные участки']};
-const initial={query:'',district:'',minPrice:'',maxPrice:'',minArea:'',kind:'',sort:'default'};
+const initial={query:'',district:'',minPrice:'',maxPrice:'',minArea:'',kind:'',sort:'desc'};
 export default function CategoryPage({category}){
  const [filters,setFilters]=useState(initial);const [open,setOpen]=useState(false);
  const [title,subtitle]=config[category];
@@ -23,7 +23,7 @@ export default function CategoryPage({category}){
    if(filters.minArea!==''&&(!knownNumber(p.area)||(isLand(p)?p.area*100:p.area)<Number(filters.minArea)))return false;
    return true;
   });
-  if(filters.sort!=='default')found.sort((a,b)=>{
+  found.sort((a,b)=>{
    if(!knownNumber(a.price))return knownNumber(b.price)?1:0;
    if(!knownNumber(b.price))return -1;
    return filters.sort==='asc'?a.price-b.price:b.price-a.price;
@@ -37,7 +37,7 @@ export default function CategoryPage({category}){
  {category==='commerce'&&<label>Тип объекта<select name="kind" value={filters.kind} onChange={update}><option value="">Все объекты</option><option value="house">Помещения и здания</option><option value="land">Земельные участки</option></select></label>}
  <label>Цена от, ₸<input type="number" min="0" name="minPrice" value={filters.minPrice} onChange={update} placeholder="Без ограничений"/></label><label>Цена до, ₸<input type="number" min="0" name="maxPrice" value={filters.maxPrice} onChange={update} placeholder="Без ограничений"/></label><label>Площадь от, м²<input type="number" min="0" step="any" name="minArea" value={filters.minArea} onChange={update} placeholder="Любая площадь"/></label>
  </div>{filters.minPrice!==''&&filters.maxPrice!==''&&Number(filters.minPrice)>Number(filters.maxPrice)&&<p role="status" className="estate-filter-note">Цена «от» не должна превышать цену «до».</p>}{category==='commerce'&&<p className="estate-filter-note">Площадь участков при поиске пересчитывается в м²: 1 сотка = 100 м².</p>}</form>
- <div className="estate-filter-chips">{activeFilters.map(([key,value])=><button type="button" key={key} onClick={()=>setFilters({...filters,[key]:''})} aria-label={`Убрать фильтр: ${filterLabels[key]}`}><span>{filterLabels[key]}: {key==='kind'?(value==='land'?'Участки':'Помещения и здания'):value}{key.includes('Price')?' ₸':key==='minArea'?' м²':''}</span><X size={14}/></button>)}</div><div className="estate-results-bar"><p aria-live="polite">Найдено: {results.length}</p>{activeFilters.length>0&&<button onClick={()=>setFilters(initial)} type="button">Сбросить фильтры</button>}<label><span className="sr-only">Сортировка</span><select name="sort" value={filters.sort} onChange={update}><option value="default">Порядок коллекции</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select></label></div>
+ <div className="estate-filter-chips">{activeFilters.map(([key,value])=><button type="button" key={key} onClick={()=>setFilters({...filters,[key]:''})} aria-label={`Убрать фильтр: ${filterLabels[key]}`}><span>{filterLabels[key]}: {key==='kind'?(value==='land'?'Участки':'Помещения и здания'):value}{key.includes('Price')?' ₸':key==='minArea'?' м²':''}</span><X size={14}/></button>)}</div><div className="estate-results-bar"><p aria-live="polite">Найдено: {results.length}</p>{activeFilters.length>0&&<button onClick={()=>setFilters(initial)} type="button">Сбросить фильтры</button>}<label><span className="sr-only">Сортировка</span><select name="sort" value={filters.sort} onChange={update}><option value="desc">Сначала дороже</option><option value="asc">Сначала дешевле</option></select></label></div>
  {results.length?<div className="estate-grid">{results.map(p=><PropertyCard key={p.id} property={p}/>)}</div>:<div className="estate-empty"><h2>Подходящих объектов пока нет</h2><p>Измените параметры или поручите подбор нашему консультанту.</p><Link to="/contact" className="estate-button">Помочь с подбором</Link></div>}
  </section></div>;
 }
