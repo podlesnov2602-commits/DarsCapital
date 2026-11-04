@@ -6,7 +6,7 @@
     "type_label": "Таунхаус",
     "location": "Алматы, Бостандыкский район, ЖК «Ботанический сад»",
     "map_url": "https://yandex.ru/map-widget/v1/?um=constructor%3Ac4041bda472782257c444444ab124360a4af0ca669be93ffc16f9fdeec674586&source=constructor",
-    "price": 370000000,
+    "price": 260000000,
     "area": 213,
     "area_unit": "м²",
     "plot_size": 2.7,
@@ -3617,7 +3617,8 @@
           "Дом находится в Ауэзовском районе Алматы, в микрорайоне Мамыр-4."
         ]
       }
-    ]
+    ],
+    "hiddenFromCatalog": true
   },
   {
     "id": "45",
@@ -4474,7 +4475,7 @@
     "type": "villa",
     "location": "Медеуский р-н, Курганская улица",
     "map_url": "https://yandex.ru/map-widget/v1/?um=constructor%3Ae01053a038ef98efcca5e94a96e433f4d6f227a0ed280a517532b754a956e18f&source=constructor",
-    "price": 185000000,
+    "price": 170000000,
     "old_price": null,
     "area": 150,
     "plot_size": 3.3,
