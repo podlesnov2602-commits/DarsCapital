@@ -451,6 +451,7 @@
   },
   {
     "id": "88",
+    "hiddenFromCatalog": true,
     "title": "Central Avenue — трёхкомнатная квартира, 124 м²",
     "type": "apartment",
     "type_label": "Квартира",
@@ -548,6 +549,7 @@
   },
   {
     "id": "87",
+    "hiddenFromCatalog": true,
     "title": "Elite Life — квартира в стиле современной классики, 129 м²",
     "type": "apartment",
     "type_label": "Квартира",
@@ -4554,6 +4556,7 @@
   },
   {
     "id": "62",
+    "hiddenFromCatalog": true,
     "title": "Резиденция Юбилейная — 9-комн., 560 м²",
     "type": "villa",
     "location": "Алматы, Медеуский р-н, мкр Юбилейный",
@@ -6168,6 +6171,7 @@
 ,
   {
     "id": "107",
+    "hiddenFromCatalog": true,
     "title": "Home Village — таунхаус с собственным двором у подножия гор, 191,1 м²",
     "type": "villa",
     "type_label": "Таунхаус",
