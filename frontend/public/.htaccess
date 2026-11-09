@@ -11,3 +11,12 @@
 
   RewriteRule ^ index.html [L]
 </IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <Files "release.json">
+    Header set Cache-Control "no-store"
+  </Files>
+</IfModule>

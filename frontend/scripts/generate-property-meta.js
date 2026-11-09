@@ -31,7 +31,15 @@ const hasBuild = fs.existsSync(buildIndexPath);
 const templatePath = hasBuild ? buildIndexPath : publicIndexPath;
 const outputDir = hasBuild ? buildDir : publicDir;
 
-const template = fs.readFileSync(templatePath, 'utf8');
+let template = fs.readFileSync(templatePath, 'utf8');
+if (hasBuild) {
+  // All entry pages, including property previews, share this release marker.
+  const version = process.env.DEPLOY_ID || require('crypto').createHash('sha256')
+    .update(template).update(fs.readFileSync(propertiesPath)).digest('hex');
+  template = template.replace('</head>', `<meta name="dars-release" content="${version}"></head>`);
+  fs.writeFileSync(buildIndexPath, template);
+  fs.writeFileSync(path.join(buildDir, 'release.json'), JSON.stringify({ version }));
+}
 const properties = JSON.parse(fs.readFileSync(propertiesPath, 'utf8'));
 
 const escapeHtml = (value = '') => String(value)
