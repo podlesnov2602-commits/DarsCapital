@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MapPin, ArrowRight, Check, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import ZoomablePhoto from '../components/ZoomablePhoto';
 import GoogleMapEmbed from '../components/GoogleMapEmbed';
 import { Button } from '../components/ui/button';
 import propertiesData from '../data/properties.json';
@@ -13,7 +14,6 @@ const PropertyDetail = () => {
   const [property, setProperty] = useState(null);
   const [activeImage, setActiveImage] = useState(0);
   const [isFullscreenGalleryOpen, setIsFullscreenGalleryOpen] = useState(false);
-  const [touchStartX, setTouchStartX] = useState(null);
 
   useEffect(() => {
     const foundProperty = propertiesData.find(p => String(p.id) === String(id));
@@ -79,30 +79,6 @@ const PropertyDetail = () => {
 
   const goToNextImage = () => {
     setActiveImage((prev) => (prev === property.images.length - 1 ? 0 : prev + 1));
-  };
-
-  const handleTouchStart = (event) => {
-    setTouchStartX(event.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (event) => {
-    if (touchStartX === null) {
-      return;
-    }
-
-    const touchEndX = event.changedTouches[0].clientX;
-    const swipeDistance = touchStartX - touchEndX;
-    const minSwipeDistance = 40;
-
-    if (swipeDistance > minSwipeDistance) {
-      goToNextImage();
-    }
-
-    if (swipeDistance < -minSwipeDistance) {
-      goToPreviousImage();
-    }
-
-    setTouchStartX(null);
   };
 
   return (
@@ -191,19 +167,13 @@ const PropertyDetail = () => {
             <ChevronRight size={24} />
           </button>
 
-          <div
-            className="w-full h-full flex items-center justify-center"
-            onClick={() => setIsFullscreenGalleryOpen(false)}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <img
-              src={property.images[activeImage]}
-              alt={property.title}
-              className="w-full h-full object-contain"
-              onClick={(event) => event.stopPropagation()}
-            />
-          </div>
+          <ZoomablePhoto
+            key={activeImage}
+            src={property.images[activeImage]}
+            alt={property.title}
+            onPrevious={goToPreviousImage}
+            onNext={goToNextImage}
+          />
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/40 px-3 py-1 rounded-full">
             {activeImage + 1} / {property.images.length}
