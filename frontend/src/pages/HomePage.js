@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ShieldCheck, Compass, KeyRound } from 'lucide-react';
+import heroPhoto from '../assets/hillside-villa-sunset.jpg';
 import PropertyCard from '../components/PropertyCard';
 import properties from '../data/properties.json';
 import { inCategory } from '../lib/property';
@@ -8,13 +9,11 @@ const collections=[['Виллы и резиденции','Пространств
 export default function HomePage(){
  const available=properties.filter(p=>!p.hiddenFromCatalog && p.status==='available');
  const featured=['53','85'].map(id=>available.find(p=>p.id===id)).filter(Boolean);
- const hero = featured[0] || available.find(p => p.images?.length);
  return <div className="estate-home">
   <section className="estate-hero">
-   {hero && <img src={hero.images[0]} alt={hero.title} fetchPriority="high"/>}
+   <img src={heroPhoto} alt="Современная вилла с панорамным остеклением и бассейном на склоне холма в закатном свете" fetchPriority="high"/>
    <div className="estate-hero-shade"/>
    <div className="estate-hero-content"><p className="estate-eyebrow">DARS CAPITAL · Алматы</p><h1>Превращаем мечту<br/>в адрес</h1><p className="estate-hero-copy">Ознакомьтесь с предложениями</p><div className="estate-actions"><Link to="/villas" className="estate-button">Виллы</Link><Link to="/apartments" className="estate-button">Апартаменты</Link><Link to="/commerce" className="estate-button">Коммерция</Link></div></div>
-   {hero && <div className="estate-hero-caption"><span>01 / КОЛЛЕКЦИЯ DARS CAPITAL</span><Link to={`/property/${hero.id}`}>{hero.title} <ArrowUpRight size={16}/></Link></div>}
   </section>
   <section id="collection" className="estate-section"><div className="estate-section-heading"><div><p className="estate-eyebrow">ВАШ СЛЕДУЮЩИЙ АДРЕС</p><h2>Недвижимость с характером</h2></div><p>От городской квартиры до частной резиденции.<br/>Выберите пространство под свой образ жизни.</p></div><div className="estate-collections">{collections.map(([title,subtitle,type,url],i)=><Link to={url} key={type}><span className="estate-collection-number">0{i+1}</span><h3>{title}</h3><p>{subtitle}</p><span className="estate-collection-footer">{available.filter(p=>inCategory(p,type)).length} в коллекции <ArrowUpRight size={22}/></span></Link>)}</div></section>
   <section className="estate-section estate-featured"><div className="estate-section-heading"><div><p className="estate-eyebrow">В ФОКУСЕ</p><h2>Знакомство начинается здесь</h2></div><Link to="/villas" className="estate-text-link">Коллекция резиденций <ArrowUpRight size={18}/></Link></div><div className="estate-grid">{featured.map(p=><PropertyCard key={p.id} property={p}/>)}</div></section>
