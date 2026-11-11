@@ -2331,7 +2331,8 @@
       "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1791291294/%D0%A1%D0%B0%D0%B4%D0%BE%D0%B2%D0%B0%D1%8F_%D0%BB%D0%B5%D1%81%D1%82%D0%BD%D0%B8%D1%86%D0%B0_%D0%BF%D0%BE%D0%B4_%D0%B0%D1%80%D0%BE%D1%87%D0%BD%D1%8B%D0%BC%D0%B8_%D0%BD%D0%B0%D0%B2%D0%B5%D1%81%D0%B0%D0%BC%D0%B8_q5y6gi.png",
       "https://res.cloudinary.com/ddr5ek7jn/image/upload/v1777115918/14937abc-489c-49d7-8ff4-fe40a44df994_pjbuni.jpg"
     ],
-    "featured": true,
+    "featured": false,
+    "hiddenFromCatalog": true,
     "status": "available",
     "area_unit": "м²",
     "description_sections": [
