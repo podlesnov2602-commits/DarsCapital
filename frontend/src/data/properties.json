@@ -4088,7 +4088,8 @@
         ]
       }
     ],
-    "floor": "7/7"
+    "floor": "7/7",
+    "hiddenFromCatalog": true
   },
   {
     "id": "47",
