@@ -3,819 +3,900 @@
     "id": "93",
     "title": "Таунхаус с камином у Ботанического сада",
     "hidden": false,
-    "words": 90,
+    "words": 191,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "92",
     "title": "Дом с садом и SPA в городке МВД",
     "hidden": false,
-    "words": 102,
+    "words": 216,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "91",
     "title": "Коттедж с атриумом и видовыми террасами в Нурлытау",
     "hidden": false,
-    "words": 95,
+    "words": 157,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "90",
     "title": "Здание для образовательного проекта в ЖК «Байсал»",
     "hidden": false,
-    "words": 89,
+    "words": 136,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "89",
     "title": "Здание для гостиничного проекта у рынка «Кенжехан»",
     "hidden": true,
-    "words": 93,
+    "words": 143,
     "result": "manual-review",
     "issues": [
       "57 номеров по 19 м² составляют 1083 м², а два этажа дают 984 м². Перевод назначения земли не завершён.",
       "Противоречие гостиничной концепции и незавершённый перевод явно сохранены в описании."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "88",
     "title": "Квартира с оливковыми акцентами в Central Avenue",
     "hidden": true,
-    "words": 93,
+    "words": 168,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "87",
     "title": "Квартира с балконом в малоэтажном Elite Life",
     "hidden": true,
-    "words": 95,
+    "words": 162,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "86",
     "title": "Квартира с палисадником в ЖК «Ботанический сад»",
     "hidden": false,
-    "words": 92,
+    "words": 155,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "85",
     "title": "Таунхаус с террасой в Exclusive Almaly",
     "hidden": false,
-    "words": 93,
+    "words": 186,
     "result": "manual-review",
     "issues": [
       "Поле цены 1 450 000 000; в истории есть запрос 1 398 900 000, не вошедший в эту версию main.",
       "В рамках текущей задачи цена не изменена."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "84",
     "title": "Коммерческое помещение в ЖК «Тау Шатыр»",
     "hidden": true,
-    "words": 92,
+    "words": 141,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "83",
     "title": "Семейный дом с гаражом в Тау-Самале",
     "hidden": false,
-    "words": 86,
+    "words": 128,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "82",
     "title": "Квартира с просторными комнатами в ЖК «Прогресс»",
     "hidden": false,
-    "words": 89,
+    "words": 141,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "81",
     "title": "Помещение свободного назначения в ЖК «Сункар»",
     "hidden": true,
-    "words": 91,
+    "words": 140,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "80",
     "title": "East Line Estate: коттедж на озеленённом участке",
     "hidden": true,
-    "words": 90,
+    "words": 131,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "79",
     "title": "Квартира с сауной на Кажымукана",
     "hidden": false,
-    "words": 87,
+    "words": 143,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "78",
     "title": "Koktobe Panorama: дом с видом на горы",
     "hidden": false,
-    "words": 86,
+    "words": 137,
     "result": "manual-review",
     "issues": [
       "Неясно, входят ли ванная мастер-спальни и два дополнительных санузла в единый счёт.",
       "Санузлы не нормализованы до подтверждения."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "77",
     "title": "Mountain Valley: дом с гостевыми пространствами",
     "hidden": false,
-    "words": 91,
+    "words": 180,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "76",
     "title": "Квартира с открытой террасой в ЖК «Ата»",
     "hidden": false,
-    "words": 91,
+    "words": 147,
     "result": "manual-review",
     "issues": [
       "116,9 + около 31 = около 147,9 м² при общей 148.",
       "Указано включение террасы; требуется проверка коэффициентов и округления."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "75",
     "title": "Kompot Garden: дом с плодовым садом",
     "hidden": true,
-    "words": 90,
+    "words": 139,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "74",
     "title": "Квартира со свободным пространством в ЖК «Ата»",
     "hidden": false,
-    "words": 85,
+    "words": 140,
     "result": "manual-review",
     "issues": [
       "110,1 + 4,4 + 10,1 = 124,6, поле 124,7 м².",
       "Состав площади сохранён отдельно, исходное число не исправлено."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "73",
     "title": "Дом с мансардой и баней в Тау-Самале",
     "hidden": true,
-    "words": 90,
+    "words": 140,
     "result": "manual-review",
     "issues": [
       "Поле rooms=5, но текст перечисляет 5 спален, зал и кабинет. «3 уровня и мансарда» требует подтверждения схемы этажей.",
       "Количество комнат сохранено как в базе; число спален и этажность не добавлены."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "72",
     "title": "Четырёхкомнатная квартира в RAMS Signature",
     "hidden": false,
-    "words": 87,
+    "words": 126,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "71",
     "title": "Монолитный дом для реконструкции на Каменском плато",
     "hidden": false,
-    "words": 91,
+    "words": 153,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "70",
     "title": "Ryskulov Business Center: здание с арендаторами",
     "hidden": false,
-    "words": 91,
+    "words": 133,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "68",
     "title": "Esentai Heights: участок с панорамой города",
     "hidden": true,
-    "words": 87,
+    "words": 135,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "67",
     "title": "Дом по проекту Тимура Аскарова в Горном Гиганте",
     "hidden": false,
-    "words": 63,
+    "words": 113,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "31",
     "title": "Дом с гостевой резиденцией на Оспанова",
     "hidden": true,
-    "words": 90,
+    "words": 144,
     "result": "manual-review",
     "issues": [
       "6 комнат в поле, 6 спален в двух домах и гостиные в тексте. Общая площадь относится к двум строениям.",
       "Состав площади раскрыт; число комнат требует уточнения."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "57",
     "title": "Дом в стиле минимализм в Жайлы",
     "hidden": false,
-    "words": 83,
+    "words": 187,
     "result": "manual-review",
     "issues": [
       "Площадь участка: поле 6 соток, текст 5 соток с прилегающей землёй. Этажность: 3 этажа в характеристиках, одноэтажный дом в тексте.",
       "Этажность не выведена; исходные площадь и участок сохранены."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "53",
     "title": "Коттедж с террасой у Ботанического сада",
     "hidden": false,
-    "words": 92,
+    "words": 151,
     "result": "manual-review",
     "issues": [
       "Вступление упоминает одну спальню цоколя, подробная планировка две.",
       "Не добавлен суммарный счёт спален; предчистовой цоколь явно обозначен."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "40",
     "title": "Коттедж с большой гостиной и садом в Компоте",
     "hidden": false,
-    "words": 90,
+    "words": 157,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "58",
     "title": "Семейный дом с гостевым корпусом в Калкамане-2",
     "hidden": false,
-    "words": 91,
+    "words": 150,
     "result": "manual-review",
     "issues": [
       "9 комнат в поле, подробное перечисление комнат и мансарды может давать другое число.",
       "Поля сохранены; требуется экспликация, гостевой дом не прибавлен к площади основного."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "60",
     "title": "Участок ИЖС на Сатпаева и Луганского",
     "hidden": false,
-    "words": 87,
+    "words": 141,
     "result": "manual-review",
     "issues": [
       "ИЖС/ПДП Ж-1, но старый текст обещал коммерческую застройку.",
       "Коммерческий формат не выдан за разрешённое использование."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "1",
     "title": "Участок у Парка Первого Президента",
     "hidden": true,
-    "words": 84,
+    "words": 142,
     "result": "manual-review",
     "issues": [
       "Газ: в одном фрагменте подключён, в другом перечислен рядом с сетями в 800 м.",
       "Статус газового подключения не нормализован."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "32",
     "title": "Пентхаус с видом на горы в Tau-house",
     "hidden": false,
-    "words": 87,
+    "words": 131,
     "result": "manual-review",
     "issues": [
       "Публикация в Architectural Digest и профессиональная премия без ссылки на подтверждение.",
       "Рекламное утверждение исключено из публичной подачи; сохранено в резервной копии."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "41",
     "title": "Дом с атриумом и бассейном в Баганашыле",
     "hidden": true,
-    "words": 84,
+    "words": 133,
     "result": "manual-review",
     "issues": [
       "5 комнат в поле, гостевая спальня и 4 спальни наверху плюс гостиная и зал в тексте.",
       "Комнаты сохранены; не добавлено противоречивое число спален."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "39",
     "title": "Два дома с видовыми пространствами в Аскартау",
     "hidden": true,
-    "words": 89,
+    "words": 144,
     "result": "manual-review",
     "issues": [
       "5 комнат в поле, 5 спален и 3 гостиные в тексте двух домов.",
       "Состав площади раскрыт; число комнат требует уточнения."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "42",
     "title": "Кирпичный дом с собственной подстанцией в Ерменсае",
     "hidden": false,
-    "words": 83,
+    "words": 137,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "43",
     "title": "Дом с атриумом и сервисным блоком на Кок-Тобе",
     "hidden": false,
-    "words": 87,
+    "words": 143,
     "result": "manual-review",
     "issues": [
       "6 комнат в поле, 6 спален плюс гостиные в тексте.",
       "Комнаты сохранены; требуется экспликация."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "59",
     "title": "Таунхаус с выходом к Есентаю",
     "hidden": false,
-    "words": 84,
+    "words": 161,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "51",
     "title": "Дом с садом и высоким атриумом в Нурлытау",
     "hidden": false,
-    "words": 87,
+    "words": 145,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "33",
     "title": "Пентхаус с классическим интерьером у Ботанического сада",
     "hidden": true,
-    "words": 87,
+    "words": 131,
     "result": "manual-review",
     "issues": [
       "В тексте одновременно двухуровневый пентхаус и 307 м² на одном уровне.",
       "Число уровней не публикуется до сверки плана."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "44",
     "title": "Дом с камином и прудом в Мамыре-4",
     "hidden": true,
-    "words": 87,
+    "words": 144,
     "result": "manual-review",
     "issues": [
       "Вступление 3 уровня, планировка 3 этажа и цоколь.",
       "Этажность не добавлена до проверки."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "45",
     "title": "Дом с камином и сауной в Таугуле-3",
     "hidden": true,
-    "words": 88,
+    "words": 131,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "46",
     "title": "Дом с патио и действующей арендой в Нур Алатау",
     "hidden": false,
-    "words": 83,
+    "words": 137,
     "result": "manual-review",
     "issues": [
       "4 комнаты в поле, 4 спальни и зал в тексте. Действующий договор аренды.",
       "Число комнат сохранено, договор обозначен; передачу и срок освобождения согласовать."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "34",
     "title": "Квартира с приватной террасой в Aulet",
     "hidden": false,
-    "words": 85,
+    "words": 180,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "48",
     "title": "Дом с панорамными окнами в Ерменсае",
     "hidden": true,
-    "words": 84,
+    "words": 130,
     "result": "manual-review",
     "issues": [
       "5 комнат в поле, 5 спален плюс гостиная и столовая.",
       "Комнаты сохранены, спальни не нормализованы."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "35",
     "title": "Квартира с четырьмя спальнями в ЖК «Прогресс»",
     "hidden": true,
-    "words": 86,
+    "words": 133,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "52",
     "title": "Квартира с террасой на крыше у Аль-Фараби",
     "hidden": false,
-    "words": 88,
+    "words": 137,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "54",
     "title": "Квартира с видовой террасой в Dostyk Residence",
     "hidden": false,
-    "words": 81,
+    "words": 127,
     "result": "manual-review",
     "issues": [
       "Общая площадь 120 м², текст также содержит 140 м² и террасу 23,5 м².",
       "Основное поле 120 сохранено; состав площади требует техпаспорта."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "47",
     "title": "East Village: дуплекс с собственным двором",
     "hidden": false,
-    "words": 87,
+    "words": 123,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "49",
     "title": "Меблированный дом с банным цоколем в Компоте",
     "hidden": false,
-    "words": 83,
+    "words": 130,
     "result": "manual-review",
     "issues": [
       "4 комнаты в поле, 4 спальни, зал и кабинет в тексте.",
       "Комнаты сохранены; требуется экспликация."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "55",
     "title": "Коттедж с открытой планировкой в Miras Hills",
     "hidden": false,
-    "words": 83,
+    "words": 132,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "50",
     "title": "Дом с гостевым корпусом и баней в Ерменсае",
     "hidden": true,
-    "words": 85,
+    "words": 144,
     "result": "manual-review",
     "issues": [
       "Участок 14,3 в поле и 14,5 в старом названии; rooms=2 при двух спальнях и гостиной.",
       "Название без спорной площади; поля сохранены."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "36",
     "title": "Квартира с дубовым паркетом в «Тенгиз Тауэрс»",
     "hidden": false,
-    "words": 86,
+    "words": 148,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "61",
     "title": "Монолитный дом с панорамными окнами на Курганской",
     "hidden": false,
-    "words": 84,
+    "words": 141,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "62",
     "title": "Дом с бассейном и террасами в Юбилейном",
     "hidden": true,
-    "words": 84,
+    "words": 130,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "63",
     "title": "Помещение с мезонином в ЖК 4YOU",
     "hidden": false,
-    "words": 87,
+    "words": 147,
     "result": "manual-review",
     "issues": [
       "В поле цены 2 000 000, в старом тексте аренда 2 400 000 ₸.",
       "Цена из поля сохранена; старое значение убрано из повествования."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "64",
     "title": "Дом с панорамным остеклением в Архате",
     "hidden": false,
-    "words": 82,
+    "words": 139,
     "result": "manual-review",
     "issues": [
       "Свежий ремонт и черновая стадия строительства указаны одновременно. Неясна готовность бассейна, бани и комплектации.",
       "В описании оборудование подано как проект, готовность не утверждается."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "65",
     "title": "Резиденция с большим участком на Достык",
     "hidden": false,
-    "words": 89,
+    "words": 137,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "66",
     "title": "Коммерческое здание с панорамным залом у NAVAT",
     "hidden": false,
-    "words": 90,
+    "words": 141,
     "result": "manual-review",
     "issues": [
       "Сумма этажей с коэффициентом кровли: 176,6 + 172,1 + 230,1 + 80,4 × 0,3 = 602,92 м² при 604.",
       "Общая площадь сохранена; требуется технический паспорт."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "69",
     "title": "Abulkhair Garden: дом с баней и плодовым садом",
     "hidden": false,
-    "words": 86,
+    "words": 142,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "94",
     "title": "Таунхаус с видовой террасой в Koktau Village",
     "hidden": false,
-    "words": 87,
+    "words": 185,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "95",
     "title": "Одноэтажный дом с садом в Горном Гиганте",
     "hidden": false,
-    "words": 86,
+    "words": 188,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "96",
     "title": "Первый этаж с отдельным входом на ВОАД",
     "hidden": false,
-    "words": 91,
+    "words": 153,
     "result": "manual-review",
     "issues": [
       "Галерея включает все уровни, цена карточки относится к первому этажу.",
       "Объём аренды и другие площади разделены; парковка обозначена общей для здания."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "97",
     "title": "Караой-3: месторождение строительного камня",
     "hidden": true,
-    "words": 88,
+    "words": 138,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "98",
     "title": "Дом High-Tech с террасой в Компоте",
     "hidden": false,
-    "words": 89,
+    "words": 140,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "99",
     "title": "Дом с семиметровым атриумом в Горном Гиганте",
     "hidden": false,
-    "words": 87,
+    "words": 132,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "100",
     "title": "Дом с плодовым садом у Терренкура",
     "hidden": false,
-    "words": 86,
+    "words": 137,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "101",
     "title": "Одноуровневый особняк с бассейном в Горном Гиганте",
     "hidden": false,
-    "words": 85,
+    "words": 137,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "102",
     "title": "Коммерческий участок на Шарипова и Казыбек би",
     "hidden": true,
-    "words": 87,
+    "words": 140,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "103",
     "title": "Дом с высокой гостиной в Горном Гиганте",
     "hidden": false,
-    "words": 85,
+    "words": 141,
     "result": "manual-review",
     "issues": [
       "Черновая / предчистовая отделка без разделения по помещениям.",
       "Исходное состояние сохранено; требуется детализация."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "104",
     "title": "Mountain Park: квартира с сауной и террасами",
     "hidden": false,
-    "words": 88,
+    "words": 143,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "105",
     "title": "Ermensai Club: дуплекс с панорамной террасой",
     "hidden": false,
-    "words": 87,
+    "words": 153,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "106",
     "title": "Кирпичный дом с бассейном в городке МВД",
     "hidden": false,
-    "words": 87,
+    "words": 134,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "107",
     "title": "Home Village: таунхаус с собственным двором",
     "hidden": true,
-    "words": 88,
+    "words": 186,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "108",
     "title": "Дом с тёплым бассейном в Нур Алатау",
     "hidden": false,
-    "words": 84,
+    "words": 135,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "109",
     "title": "Capital Club: вилла с панорамными окнами",
     "hidden": false,
-    "words": 86,
+    "words": 169,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "110",
     "title": "Дом с садом и выходом к Есентаю",
     "hidden": false,
-    "words": 86,
+    "words": 139,
     "result": "manual-review",
     "issues": [
       "Общее число санузлов 3, по этажам перечислены 2.",
       "Общее поле 3 сохранено; требуется размещение третьего санузла."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "111",
     "title": "Дом со SPA и панорамной террасой в Коктобе",
     "hidden": false,
-    "words": 86,
+    "words": 140,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "112",
     "title": "Таунхаус с двумя террасами на Панфилова",
     "hidden": false,
-    "words": 86,
+    "words": 141,
     "result": "reviewed",
     "issues": [],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   },
   {
     "id": "113",
     "title": "Резиденция с отдельным SPA в Юбилейном",
     "hidden": false,
-    "words": 84,
+    "words": 186,
     "result": "manual-review",
     "issues": [
       "8 комнат, 6 спален, кабинет, игровая и общие зоны требуют проверки подсчёта.",
       "Поля сохранены; SPA 150 м² явно отделён от основного дома 660 м²."
     ],
-    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3"
+    "sourceCommit": "d41430de8c5d7d8236d336569d4ccf2747d88dc3",
+    "editorialRevision": "expanded-context-2026-11-24"
   }
 ]
