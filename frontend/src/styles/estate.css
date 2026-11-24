@@ -146,3 +146,14 @@
 .estate-rental-options{margin-bottom:48px}.estate-rental-options h2{font-size:28px;margin-bottom:20px}.estate-rental-options ul{display:grid;gap:12px}.estate-rental-options li{padding:20px;background:var(--estate-paper);border:1px solid var(--estate-line);display:grid;gap:8px}.estate-rental-options small{color:#667085}
 @media(max-width:1023px){.estate-detail .estate-contact-column{order:0}}
 @media(max-width:640px){.estate-detail>.estate-property-heading{width:calc(100% - 32px);margin:24px auto 0}.estate-specifications dl{grid-template-columns:1fr}.estate-specifications dl>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:16px;padding:14px 0}.estate-specifications dd{font-size:14px}.estate-description>p:first-of-type{font-size:17px}.estate-card-summary{font-size:14px}}
+.estate-description .estate-description-section{margin:0 0 30px}
+.estate-description .estate-description-intro p{font-size:18px;line-height:1.8;color:var(--estate-ink)}
+.estate-description-section h3{max-width:38ch;overflow-wrap:break-word}
+.estate-description-conditions{margin:32px 0 42px;padding:24px;border-left:2px solid #6FA8FF;background:var(--estate-paper)}
+.estate-description .estate-description-conditions h3{font-size:20px;margin:0 0 14px}
+.estate-description .estate-description-conditions p{font-size:14px;line-height:1.8;margin:0 0 12px}
+.estate-description .estate-description-conditions p:last-child{margin-bottom:0}
+.estate-equipment-details summary{font-family:Georgia,'Times New Roman',serif;font-size:23px;line-height:1.4;cursor:pointer;color:var(--estate-ink)}
+.estate-equipment-details summary:focus-visible{outline:2px solid #175cd3;outline-offset:6px}
+.estate-equipment-details[open] summary{margin-bottom:24px}
+@media(max-width:640px){.estate-description .estate-description-intro p{font-size:17px}.estate-description-conditions{padding:20px}.estate-equipment-details summary{font-size:21px}.estate-description-section h3{font-size:23px}}
