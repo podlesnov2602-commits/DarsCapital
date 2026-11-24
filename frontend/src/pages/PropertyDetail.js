@@ -7,7 +7,9 @@ import { Button } from '../components/ui/button';
 import propertiesData from '../data/properties.json';
 import PropertyCard from '../components/PropertyCard';
 import DescriptionParagraph from '../components/DescriptionParagraph';
-import { formatPrice, isRental, specifications, statusLabel, isLand, inCategory } from '../lib/property';
+import PropertySpecifications from '../components/PropertySpecifications';
+import PropertyMetadata from '../components/PropertyMetadata';
+import { formatPrice, isRental, number, statusLabel, isLand, inCategory } from '../lib/property';
 
 const PropertyDetail = () => {
   const { id } = useParams();
@@ -83,24 +85,12 @@ const PropertyDetail = () => {
 
   return (
     <div className="estate-detail w-full pt-20 bg-white">
+      <PropertyMetadata property={property}/>
       {/* Gallery Section */}
       <section className="estate-gallery-section bg-muted pb-12 pt-8">
         <div className="container mx-auto px-4 md:px-8">
           <nav className="estate-breadcrumb" aria-label="Навигация"><Link to="/">Главная</Link><span>/</span><Link to={currentPropertyType.path}>{currentPropertyType.label}</Link></nav>
-          <header className="estate-property-heading">              <div className="mb-6 flex items-center gap-2 text-accentblue text-sm uppercase tracking-widest font-semibold">
-                <span>{property.type_label || currentPropertyType.label}</span>
-              </div>
-
-              <h1 className="text-3xl md:text-5xl font-serif text-primary mb-6 leading-tight lining-nums">
-                {property.title}
-              </h1>
-
-              {property.location && <div className="flex items-center text-muted-foreground mb-10 text-lg">
-                <MapPin size={20} className="text-accentblue mr-2" />
-                {property.location}
-              </div>}
-
-</header><div className="estate-gallery-grid grid grid-cols-1 lg:grid-cols-12 gap-4">
+<div className="estate-gallery-grid grid grid-cols-1 lg:grid-cols-12 gap-4">
             {/* Main Image */}
             <div
               className="estate-main-photo lg:col-span-9 h-[400px] md:h-[600px] relative overflow-hidden group cursor-pointer"
@@ -181,6 +171,20 @@ const PropertyDetail = () => {
         </div>
       )}
 
+          <header className="estate-property-heading">              <div className="mb-6 flex items-center gap-2 text-accentblue text-sm uppercase tracking-widest font-semibold">
+                <span>{property.type_label || currentPropertyType.label}</span>
+              </div>
+
+              <h1 className="text-3xl md:text-5xl font-serif text-primary mb-6 leading-tight lining-nums">
+                {property.title}
+              </h1>
+
+              {property.location && <div className="flex items-center text-muted-foreground mb-10 text-lg">
+                <MapPin size={20} className="text-accentblue mr-2" />
+                {property.location}
+              </div>}
+
+<div className="estate-primary-price"><span>{isRental(property)?'Аренда в месяц':'Стоимость'}</span><p>{formatPrice(property.price,isRental(property))}</p></div></header>
       {/* Main Content Area */}
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-8">
@@ -188,8 +192,10 @@ const PropertyDetail = () => {
 
             {/* Left Column - Details */}
             <div className="estate-detail-copy lg:col-span-2">
-              <section className="estate-specifications"><p className="estate-eyebrow">ПАСПОРТ ОБЪЕКТА</p><h2>Характеристики</h2><dl>{specifications(property).map(([label,value])=><div key={label}><dt>{label}</dt><dd className={label==='Стоимость'?'estate-price':undefined}>{value}</dd></div>)}</dl></section>
-              <section className="estate-description"><h2>Описание</h2>{property.description_sections?.map(section=><div key={section.title}><h3>{section.title}</h3>{section.paragraphs.length ? section.paragraphs.map((text,index)=><DescriptionParagraph key={index} text={text}/>) : <p className="estate-missing">Подробности уточняются у консультанта.</p>}</div>)}</section>
+              <PropertySpecifications property={property}/>
+              {property.rental_options?.length > 0 && <section className="estate-rental-options"><h2>Доступные площади</h2><ul>{property.rental_options.map(option=><li key={option.label}><strong>{option.label} · {number(option.area)} м²</strong><span>{formatPrice(option.monthly,true)}</span><small>{number(option.rate)} ₸/м² в месяц</small></li>)}</ul></section>}
+              <section className="estate-description"><h2>Об объекте</h2>{property.description_sections?.flatMap(section=>section.paragraphs).filter(Boolean).map((text,index)=><DescriptionParagraph key={index} text={text}/>)}</section>
+              <PropertySpecifications property={property} additional/>
 
               {/* Features */}
               {property.features && property.features.length > 0 && (
@@ -219,12 +225,10 @@ const PropertyDetail = () => {
             </div>
 
             {/* Right Column - Sidebar / Form */}
-            <div className="estate-contact-column lg:col-span-1">
+            <div className="estate-contact-column lg:col-span-1" aria-label="Связь с агентом DARS CAPITAL">
               <div className="estate-viewing-card sticky top-24 md:top-28 bg-white border border-border p-5 sm:p-8 shadow-[0_18px_36px_rgba(15,31,58,0.12)]">
-                <div className="text-sm text-muted-foreground uppercase tracking-wider mb-2">Стоимость</div>
-                <div className="estate-detail-price text-3xl sm:text-4xl font-serif lining-nums text-primary mb-8">
-                  {formatPrice(property.price, isRental(property))}
-                </div>
+                <div className="text-sm text-muted-foreground uppercase tracking-wider mb-2">DARS CAPITAL</div>
+                <h2 className="estate-consultant-title">Индивидуальный просмотр</h2>
 
                 <p className="estate-viewing-note">Свяжитесь с консультантом, чтобы уточнить детали и выбрать удобное время просмотра.</p><div className="space-y-4 mb-8">
                   <a href={`https://wa.me/77077157249?text=${encodeURIComponent(`Здравствуйте! Хочу записаться на просмотр объекта № ${property.id}: ${property.title}`)}`} target="_blank" rel="noopener noreferrer" className="block w-full">

@@ -93,19 +93,9 @@ const imageMimeType = (image) => {
   return 'image/jpeg';
 };
 
-const buildDescription = (property) => [
-  `Цена: ${formatPrice(property.price)}`,
-  formatArea(property) && `Площадь: ${formatArea(property)}`,
-  property.rooms && `Комнат: ${property.rooms}`,
-  property.location && `Локация: ${property.location}`,
-  property.short_description,
-].filter(Boolean).join(' • ');
+const buildDescription = property => property.seo_description || property.short_description || property.title;
 
-const buildTitle = (property) => [
-  `Продажа ${propertyKind(property)}`,
-  formatArea(property),
-  property.location,
-].filter(Boolean).join(' • ');
+const buildTitle = property => property.title + ' | DARS CAPITAL';
 
 const renderMeta = ({ title, description, url, image }) => `
     <title>${escapeHtml(title)}</title>

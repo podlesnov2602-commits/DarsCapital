@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { SlidersHorizontal, Search, X } from 'lucide-react';
 import PropertyCard from '../components/PropertyCard';
 import properties from '../data/properties.json';
-import { isLand, knownNumber, inCategory } from '../lib/property';
+import { isLand, knownNumber, inCategory, areaInSquareMetres } from '../lib/property';
 const config={apartment:['Апартаменты','Квартиры и пентхаусы для жизни в ритме города'],villa:['Виллы и резиденции','Дома и резиденции в Алматы и предгорьях'],commerce:['Коммерческая недвижимость','Помещения, здания и земельные участки']};
 const initial={query:'',district:'',minPrice:'',maxPrice:'',minArea:'',kind:'',sort:'desc'};
 export default function CategoryPage({category}){
@@ -14,13 +14,13 @@ export default function CategoryPage({category}){
  const update=e=>setFilters({...filters,[e.target.name]:e.target.value});
  const results=useMemo(()=>{
   const found=properties.filter(p=>inCategory(p,category)&&!p.hiddenFromCatalog).filter(p=>{
-   if(filters.query && !`${p.title} ${p.location}`.toLocaleLowerCase('ru').includes(filters.query.trim().toLocaleLowerCase('ru')))return false;
+   if(filters.query && !`${p.title} ${p.search_title || ''} ${p.location}`.toLocaleLowerCase('ru').includes(filters.query.trim().toLocaleLowerCase('ru')))return false;
    if(filters.district&&!p.location.includes(filters.district))return false;
    if(filters.kind==='land'&&!isLand(p))return false;
    if(filters.kind==='house'&&isLand(p))return false;
    if(filters.minPrice!==''&&(!knownNumber(p.price)||p.price<Number(filters.minPrice)))return false;
    if(filters.maxPrice!==''&&(!knownNumber(p.price)||p.price>Number(filters.maxPrice)))return false;
-   if(filters.minArea!==''&&(!knownNumber(p.area)||(isLand(p)?p.area*100:p.area)<Number(filters.minArea)))return false;
+   if(filters.minArea!==''&&(!knownNumber(p.area)||areaInSquareMetres(p)<Number(filters.minArea)))return false;
    return true;
   });
   found.sort((a,b)=>{
