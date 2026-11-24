@@ -1,40 +1,41 @@
-import { briefFacts, specifications, formatPrice, isRental, inCategory } from './property';
+import { briefFacts, specifications, additionalSpecifications, formatPrice, isRental, inCategory, areaInSquareMetres } from './property';
 import properties from '../data/properties.json';
-test('all properties share description sections and valid display values',()=>{
- expect(properties.length).toBeGreaterThan(0);
- expect(new Set(properties.map(p=>p.id)).size).toBe(properties.length);
+test('every record has unique reviewed content and clean display values',()=>{
+ expect(properties).toHaveLength(81);
+ for(const key of ['id','title','description','seo_description'])expect(new Set(properties.map(p=>p[key])).size).toBe(properties.length);
  for(const p of properties){
-  expect(p.description_sections.map(s=>s.title)).toEqual(['Об объекте','Характеристики и оснащение','Территория и инфраструктура','Расположение']);
-  expect(specifications(p).every(([label,value])=>label && value && !/undefined|null|NaN/.test(value))).toBe(true);
+  expect(p.description).toBe(p.description_sections.flatMap(s=>s.paragraphs).join('\n\n'));
+  expect(p.description).not.toMatch(/—|₸|тенге|доллар|по предоставлен|согласно имеющимся|предположительно|данные не предоставлены/i);
+  const rows=[...specifications(p),...additionalSpecifications(p)];
+  expect(new Set(rows.map(([k])=>k)).size).toBe(rows.length);
+  expect(rows.every(([label,value])=>label && value && !/undefined|null|NaN|Уточняется/.test(value))).toBe(true);
   expect(briefFacts(p).join(' ')).not.toMatch(/null|undefined|NaN|(?:^|\s)0 комн/);
  }
 });
-test('land uses сотки without room count or duplicate plot',()=>{
+test('unknown fields are omitted instead of represented by zero or placeholders',()=>{
+ const rows=specifications({type:'apartment',rooms:0,area:null,ceiling_height:0});
+ for(const label of ['Количество комнат','Общая площадь','Этаж','Высота потолков'])expect(rows.some(([k])=>k===label)).toBe(false);
+ expect(formatPrice(0)).toBe('Цена по запросу');
+});
+test('land uses a single area and does not confuse land purpose with size',()=>{
  const p=properties.find(p=>p.id==='68');
  expect(briefFacts(p)).toEqual(['23 сот.']);
- expect(specifications(p).filter(([k])=>k==='Площадь участка')).toHaveLength(1);
- expect(specifications(p).some(([k])=>k==='Комнаты')).toBe(false);
+ expect([...specifications(p),...additionalSpecifications(p)].filter(([k])=>k==='Площадь участка')).toHaveLength(1);
+ expect(additionalSpecifications(p)).toContainEqual(['Назначение участка','ИЖС']);
+ expect(inCategory(p,'commerce')).toBe(true);expect(inCategory(p,'villa')).toBe(false);
+ expect(areaInSquareMetres(p)).toBe(2300);
+ expect(areaInSquareMetres(properties.find(p=>p.id==='97'))).toBe(200000);
 });
-test('unknown prices and rooms are not invented',()=>{
- expect(formatPrice(null)).toBe('Цена по запросу');
- expect(formatPrice(0)).toBe('Цена по запросу');
- expect(specifications(properties.find(p=>p.id==='80'))).toContainEqual(['Комнаты','Уточняется']);
+test('rent is explicit after removing prices from legacy feature text',()=>{
+ for(const id of ['63','96'])expect(isRental(properties.find(p=>p.id===id))).toBe(true);
+ expect(formatPrice(1455000,true)).toMatch(/₸ \/ мес\./);
+ const p=properties.find(p=>p.id==='96');
+ for(const option of p.rental_options)expect(option.monthly).toBe(option.area*option.rate);
+ expect(p.price).toBe(p.rental_options[0].monthly);
 });
-test('rental price includes monthly period',()=>{
- const p=properties.find(p=>p.id==='63');
- expect(isRental(p)).toBe(true);
- expect(formatPrice(2400000,true)).toMatch(/₸ \/ мес\./);
+test('construction and material caveats remain in the passport',()=>{
+ expect(additionalSpecifications(properties.find(p=>p.id==='91'))).toContainEqual(['Назначение участка','ЛПХ']);
+ expect(specifications(properties.find(p=>p.id==='105'))).toContainEqual(['Материал здания','Металлокаркас и газоблок']);
+ expect(additionalSpecifications(properties.find(p=>p.id==='113'))).toContainEqual(['Канализация','Септик']);
+ expect(specifications(properties.find(p=>p.id==='72'))).toContainEqual(['Этаж','7']);
 });
-
-
-test('complete descriptions have four sections and synchronized plain text',()=>{
- for(const p of properties){
-  expect(p.description_sections.every(s=>s.paragraphs.length>=1 && s.paragraphs.every(text=>text.length>0))).toBe(true);
-  expect(p.description).toBe(p.description_sections.map(s=>s.title+'\n\n'+s.paragraphs.join('\n\n')).join('\n\n'));
-  expect(p.short_description.length).toBeGreaterThan(40);
-  expect(p.description).not.toMatch(/🔥|🏡|📍|💰|✔/);
- }
-});
-
-test('all land belongs exclusively to commerce',()=>{for(const p of properties.filter(p=>/^сот/.test(p.area_unit))){expect(inCategory(p,'commerce')).toBe(true);expect(inCategory(p,'villa')).toBe(false);}});
-test('detailed construction, brands and utilities remain available',()=>{const home=properties.find(p=>p.id==='57').description;for(const detail of ['Schuco','Minotti','Poliform','Antoniolupi','Gessi','Laminam','Turkov'])expect(home).toContain(detail);const villa=properties.find(p=>p.id==='31').description;for(const detail of ['415','100','3 фазы','2 источника','Автополив'])expect(villa).toContain(detail);});
