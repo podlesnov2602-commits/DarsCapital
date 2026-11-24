@@ -6,7 +6,7 @@ import GoogleMapEmbed from '../components/GoogleMapEmbed';
 import { Button } from '../components/ui/button';
 import propertiesData from '../data/properties.json';
 import PropertyCard from '../components/PropertyCard';
-import DescriptionParagraph from '../components/DescriptionParagraph';
+import PropertyDescription from '../components/PropertyDescription';
 import PropertySpecifications from '../components/PropertySpecifications';
 import PropertyMetadata from '../components/PropertyMetadata';
 import { formatPrice, isRental, number, statusLabel, isLand, inCategory } from '../lib/property';
@@ -194,13 +194,13 @@ const PropertyDetail = () => {
             <div className="estate-detail-copy lg:col-span-2">
               <PropertySpecifications property={property}/>
               {property.rental_options?.length > 0 && <section className="estate-rental-options"><h2>Доступные площади</h2><ul>{property.rental_options.map(option=><li key={option.label}><strong>{option.label} · {number(option.area)} м²</strong><span>{formatPrice(option.monthly,true)}</span><small>{number(option.rate)} ₸/м² в месяц</small></li>)}</ul></section>}
-              <section className="estate-description"><h2>Об объекте</h2>{property.description_sections?.flatMap(section=>section.paragraphs).filter(Boolean).map((text,index)=><DescriptionParagraph key={index} text={text}/>)}</section>
+              <PropertyDescription property={property}/>
               <PropertySpecifications property={property} additional/>
 
               {/* Features */}
               {property.features && property.features.length > 0 && (
-                <div className="estate-features-panel mb-12 bg-muted p-8">
-                  <h3 className="text-2xl font-serif text-primary mb-6">Детали и особенности</h3>
+                <details className="estate-features-panel estate-equipment-details mb-12 bg-muted p-8">
+                  <summary>Оснащение и дополнительные сведения</summary>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {property.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
@@ -209,7 +209,7 @@ const PropertyDetail = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </details>
               )}
 
               {(property.location || property.map_url) && <div className="mb-12">
