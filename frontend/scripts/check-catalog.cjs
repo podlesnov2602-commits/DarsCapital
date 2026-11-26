@@ -5,8 +5,9 @@ const old=read('docs/catalog-standardization/original.json');
 const current=read('frontend/src/data/properties.json');
 const review=read('docs/catalog-standardization/review.json');
 const editorial=new Set(['title','short_description','description','description_sections','features']);
-assert.equal(current.length,old.length);
-assert.equal(review.length,old.length);
+assert(current.length >= old.length, "Original catalogue records must be retained");
+assert.equal(review.length,current.length);
+for(const p of current)assert(review.some(r=>r.id===p.id&&["reviewed","manual-review"].includes(r.result)), "Missing review for "+p.id);
 for(const p of old){
  const next=current.find(x=>x.id===p.id);
  assert(next,'Missing object '+p.id);
